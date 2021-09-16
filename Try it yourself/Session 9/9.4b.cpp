@@ -6,14 +6,17 @@ int main(){
 	printf("This program is to Display a numeric triangle.\n");
 
 	int h; // h: height.
-	printf("Enter the height of the triangle: ");
-	scanf("%d", &h);
-
+	
+	do{
+		printf("Enter the height of the triangle: ");
+		scanf("%d", &h);
+	}while (h<=0);
+	
 	for(int i=h; i>0; i--){
 		for(int j=1; j<=i; j++){
 			printf("%d",j);
 		}
 		printf("\n");
 	}
-	
+
 }

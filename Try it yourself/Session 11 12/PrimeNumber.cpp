@@ -6,20 +6,20 @@ int main(){
 
 	printf("** Check a number whether it is prime or not **\n\n");
 	
-	int a, flag=1;
+	int num, flag=1;
 	printf("Input a number: ");
-	scanf("%d", &a);
+	scanf("%d", &num);
 	
-	for(int i=2; i<=sqrt(a); i++){
-		if(a%i==0){
+	for(int i=2; i<=sqrt(num); i++){
+		if(num%i==0){
 			flag=0;
-			printf("%d can divide for: %d.\n", a, i);
+			printf("Number %d can be divided by %d.\n", num, i);
 			break;
 		}
 	}
-	
+
 	if(flag)
-		printf("Number %d is a prime number!", a);
+		printf("Number %d is a prime number!", num);
 	else
-		printf("Number %d is NOT a prime number!", a);
+		printf("Number %d is NOT a prime number!", num);
 }

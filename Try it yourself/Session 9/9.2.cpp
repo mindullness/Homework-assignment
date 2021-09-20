@@ -5,17 +5,16 @@ int main(){
 
 	printf("This program is to Find the sum of all odd numbers between the two numbers entered.\n");
 
-	int num1, num2, sum;
+	int a, b, sum;
 	printf("Enter number 1: ");
-	scanf("%d", &num1);
+	scanf("%d", &a);
 	printf("Enter number 2: ");
-	scanf("%d", &num2);
+	scanf("%d", &b);
 
-	for(int i= ((num1<num2)?num1:num2); i <=((num1<num2)?num2:num1) ; i++){
+	for(int i= ((a<b)?a:b) ; i <= ((a<b)?b:a) ; i++){
 		
 		if(i%2 != 0){
 			
-			printf("%d\n", i);
 			sum += i;
 		}
 	}

@@ -32,6 +32,7 @@ int main(){
 				return 0;
 			default:
 				printf("\nInvalid input! Re-input!");
+				break;
 		}
 	}
 }

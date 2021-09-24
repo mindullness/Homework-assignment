@@ -10,10 +10,10 @@ int main(){
 
 	while(1){
 
-		printf("\n\t*** MENU Session 16 - Function ***\n\n");
-		printf("Press (1) Run Part II - For the next 30 minutes - Square an integer number.\n");
-		printf("Press (2) Run Try It Yourself 16.1 - Calculate the perimeter and the area of a circle.\n");
-		printf("Press (3) Run Try It Yourself 16.2 - Calculate the factorial of an integer.\n");
+		printf("\n  *** MENU Session 16 - Functions (Lab) ***\n\n");
+		printf("Press (1) Run Part II - For the next 30 minutes.\n");
+		printf("Press (2) Run Try It Yourself 16.1.\n");
+		printf("Press (3) Run Try It Yourself 16.2.\n");
 		printf("Press (4) Exit. \n");
 		printf("Press: ");
 		char op = getche();
@@ -58,7 +58,7 @@ void s16_1(){
 	printf("\n\tPress (1) to Calculate the perimeter.");
 	printf("\n\tPress (2) to Calculate the area.");
 	printf("\n\tPress (3) to Calculate both of (1) & (2).");
-	printf("\n\tPress (4) to Quit this function.\n\tPress: ");
+	printf("\n\tPress any to Quit this exercise.\n\tPress: ");
 	int op = getche();
 	
 	switch(op){
@@ -69,10 +69,10 @@ void s16_1(){
 				printf("\n\tThe area of this circle: %.2f\n", area(r));
 				break;
 			case '3':
-				printf("\n\tThis circle's perimeter: %.2f\n",perimeter(r));
+				printf("\n\tThis circle's perimeter: %.2f",perimeter(r));
 				printf("\n\tThis circle's area: %.2f\n",area(r));
 				break;
-			case '4':
+			default:
 				return;
 		}
 }

@@ -30,6 +30,8 @@ int main(){
 				break;
 			case '4':
 				return 0;
+			default:
+				printf("\nInvalid input! Re-input!");
 		}
 	}
 }
@@ -53,8 +55,11 @@ float area(int r);
 void s16_1(){
 	int r;
 	printf("\n\t*** Exercise 1 ***\n\tCalculate the perimeter and the area of a circle.\n");
-	printf("\n\tInput the radius of the circle: ");
+	do{
+    printf("\n\tInput the radius of the circle: ");
 	scanf("%d", &r);
+	}while(r<=0);
+	
 	printf("\n\tPress (1) to Calculate the perimeter.");
 	printf("\n\tPress (2) to Calculate the area.");
 	printf("\n\tPress (3) to Calculate both of (1) & (2).");

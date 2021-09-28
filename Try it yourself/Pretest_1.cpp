@@ -14,7 +14,7 @@ int main(){
 		printf("\t*               1. Question 1                        *\n");
 		printf("\t*               2. Question 2                        *\n");
 		printf("\t*               3. Quit program                      *\n");
-		printf("\t**************************************************** \n");
+		printf("\t****************************************************** \n");
 		char op;
 		printf("\n\tYour choice: "); op = getche();
 		switch(op){
@@ -77,7 +77,7 @@ void question_2(){
 		float sci_Mark, math_Mark, eng_Mark;
 	};
 	int n;
-	printf("\n*****Student Management Program*****\n");
+	printf("\n***** Student Management Program *****\n");
 	do{
 		printf("\nHow many students do you want to manage: ");
 		scanf("%d", &n);

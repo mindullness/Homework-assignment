@@ -14,7 +14,7 @@ int main(){
 		printf("Press (2) Run Session 19 - p310. TIY 19.2\n");
 		printf("Press (3) Exit \n");
 		printf("Press: ");
-		char op = getche();
+		char op = getche();/
 
 		switch(op){
 			case '1':
@@ -114,10 +114,11 @@ struct students{
 	char name[31];
 	int score;
 };
-
 void s19_2(){
+	
 	struct students list[5];
 	printf("\nInput students details:\n");
+	
 	for(int i=0;i<5;i++){
 		printf("Student %d:\n", i+1);
 		fflush(stdin);
@@ -125,6 +126,7 @@ void s19_2(){
 		printf("  Score: "); scanf("%d", &list[i].score);
 	}
 	printf("\n*** Top 3 Scores listed in descending order ***\n");
+	
 	struct students temp;
 	for(int i=0;i<4;i++){
 		for(int j=i+1;j<5;j++){

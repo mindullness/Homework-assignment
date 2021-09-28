@@ -13,7 +13,7 @@ int main(){
 		printf("\t*               1. Question 1                        *\n");
 		printf("\t*               2. Question 2                        *\n");
 		printf("\t*               3. Quit program                      *\n");
-		printf("\t**************************************************** \n");
+		printf("\t****************************************************** \n");
 		char op;
 		printf("\n\tYour choice: "); op = getche();
 		switch(op){

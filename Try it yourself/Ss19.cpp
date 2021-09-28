@@ -4,22 +4,15 @@
 #include <conio.h>
 #include <cmath>
 void s19_1();
-//void s19_2();
-//void s20_partII();
-//void s20_1();
-//void s20_2();
+void s19_2();
 int main(){
 	
-
 	while(1){
 
 		printf("\n\t  *** MENU ***\n\n");
 		printf("Press (1) Run Session 19 - p310. TIY 19.1\n");
-//		printf("Press (2) Run Session 19 - p310. TIY 19.2\n");
-//		printf("Press (3) Run Session 20 - p. Part II (For the next 30 minutes)\n");
-//		printf("Press (4) Run Session 20 - p. TIY 20.1\n");
-//		printf("Press (5) Run Session 20 - p. TIY 20.2\n");
-		printf("Press (6) Exit \n");
+		printf("Press (2) Run Session 19 - p310. TIY 19.2\n");
+		printf("Press (3) Exit \n");
 		printf("Press: ");
 		char op = getche();
 
@@ -27,19 +20,10 @@ int main(){
 			case '1':
 				s19_1();
 				break;
-//  			case '2':
-//				s19_2();
-//				break;
-//			case '3':
-//				s19_partII();
-//				break;
-//			case '4':
-//				s20_1();
-//				break;
-//			case '5':
-//				s20_2();
-//				break;
-			case '6':
+  			case '2':
+				s19_2();
+				break;
+			case '3':
 				exit(0);
 		}
 	}
@@ -123,7 +107,50 @@ void display3(){ // Display the grand total value of the inventory.
 	printf("\n\n>> The Grand Total Value of this Inventory is: $%.2f.\n", sum);
 }
 float getPrice(int quantity, float price){
-	
 	return price*quantity;
 }
+// 19.2
+struct students{
+	char name[31];
+	int score;
+};
+
+void s19_2(){
+	struct students list[5];
+	printf("\nInput students details:\n");
+	for(int i=0;i<5;i++){
+		printf("Student %d:\n", i+1);
+		fflush(stdin);
+		printf("  Name: "); gets(list[i].name);
+		printf("  Score: "); scanf("%d", &list[i].score);
+	}
+	printf("\n*** Top 3 Scores listed in descending order ***\n");
+	struct students temp;
+	for(int i=0;i<4;i++){
+		for(int j=i+1;j<5;j++){
+			if(list[i].score < list[j].score){
+				temp = list[j];
+				list[j] = list[i];
+				list[i] = temp;
+			}
+		}
+	}
+	int top3rd = list[2].score; // The 3rd top score
+	for(int i=0;i<5;i++){
+		if(list[i].score >= top3rd){ // In case more than 1 student got the same 3rd top score
+			printf("\n  Student %d:\n", i+1);
+			printf("\tName: %s.\n", list[i].name);
+			printf("\tScore: %d.\n", list[i].score);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
 

@@ -14,7 +14,7 @@ int main(){
 		printf("Press (2) Run Session 19 - p310. TIY 19.2\n");
 		printf("Press (3) Exit \n");
 		printf("Press: ");
-		char op = getche();/
+		char op = getche();
 
 		switch(op){
 			case '1':
@@ -128,6 +128,7 @@ void s19_2(){
 	printf("\n*** Top 3 Scores listed in descending order ***\n");
 	
 	struct students temp;
+	// Descending order by score
 	for(int i=0;i<4;i++){
 		for(int j=i+1;j<5;j++){
 			if(list[i].score < list[j].score){
@@ -137,8 +138,9 @@ void s19_2(){
 			}
 		}
 	}
+	
 	int top3rd = list[2].score; // The 3rd top score
-	for(int i=0;i<5;i++){
+	for(int i=0;i<3;i++){
 		if(list[i].score >= top3rd){ // In case more than 1 student got the same 3rd top score
 			printf("\n  Student %d:\n", i+1);
 			printf("\tName: %s.\n", list[i].name);

@@ -37,7 +37,8 @@ void question_1(){
 	printf("\nEnter an integer number N: "); scanf("%d", &N);
 	
 	printf("Odd divisor of %d are: ",N);
-	for(int i=1;i<=N;i+=2){
+	for(int i=1 ; i<=N ; i+=2){
+		
 		if(N%i==0){
 			printf("%d ",i);
 			count++;

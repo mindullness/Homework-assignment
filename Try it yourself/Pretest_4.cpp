@@ -4,6 +4,7 @@
 #include <conio.h>
 void question_1();
 void question_2();
+
 int main(){
 
 	while(1){
@@ -32,7 +33,7 @@ int main(){
 }
 
 void question_1(){
-
+	
 	printf("\n\t*** Calculate the sum of multiples of N2 which less than N1 ***\n\n");
 	int N1, N2, sum=0;
 	
@@ -46,7 +47,7 @@ void question_1(){
 	
 	printf("\n\tMultiples of %d (<=%d) are: ", N2, N1);
 	
-	for(int i=1; N2*i <= N1 ;i++){
+	for(int i=0; N2* i<= N1 ;i++){
 		printf(" %d", N2*i);
 		sum+=N2*i;
 	}
@@ -55,9 +56,11 @@ void question_1(){
 struct countries{
 	char name[31];
 	char capital[31];
-	double area;
+	float area;
 };
+void printfLargestNation(int n,struct countries Nation[9]);
 void question_2(){
+	
 	printf("\n* * * Finding The Largest Nation * * *\n");
 	int NumOfCountry;
 	do{
@@ -68,21 +71,38 @@ void question_2(){
 	}while(NumOfCountry >= 10);
 	
 	struct countries Nation[NumOfCountry];
+	
 	printf("\nPlease enter the data for \n");
-	for(int i=0; i<NumOfCountry; i++){
+	for(int i =0; i<NumOfCountry; i++){
 		printf("    Country no %d:\n", i+1);
 		fflush(stdin);
 		printf("\t  name : "); gets(Nation[i].name);
 		printf("\t  capital: "); gets(Nation[i].capital);
-		printf("\t  area (square miles): "); scanf("%f", &Nation[i].area);
+		fflush(stdin);
+		printf("\t  area (square miles): ");
+		scanf("%f", &Nation[i].area );
 	}
-	double MaxArea=Nation[0].area;
-	for(int i=0; i<NumOfCountry; i++){
-		MaxArea = (MaxArea>Nation[i].area)?MaxArea:Nation[i].area;
+	printfLargestNation(NumOfCountry, Nation);
+
+}
+
+void printfLargestNation(int n, struct countries Nat[9]){
+	
+	double MaxArea=Nat[0].area;
+	for(int i=0; i<n; i++){
+		MaxArea = (MaxArea>Nat[i].area)?MaxArea:Nat[i].area;
 	}
-	for(int i=0; i<NumOfCountry; i++){
-		if(Nation[i].area==MaxArea)
-			printf("\n\t => THE LARGEST NATION IS %s\n", Nation[i].name);
+	
+	for(int i=0; i<n; i++){
+		if(Nat[i].area==MaxArea){
+			char temp[31];
+			strcpy(temp, Nat[i].name);
+			for(int j=0;j<strlen(temp);j++){
+				if(temp[j]>='a'&&temp[j]<='z')
+					temp[j]-=32;
+			}
+			printf("\n\t => THE LARGEST NATION IS %s.\n", temp);
+		}
 	}
 
 }

@@ -1,7 +1,18 @@
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.01rem;
-
-    margin-left: 1.2rem;
-    margin-right: 1.2rem;
+    font-size: 1rem;
+    text-align: justify;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-indent: 0.5rem;
+}
+.hot{
+    color: rgb(255, 0, 0);
+    font-style: italic;
+    font-weight: bold;
+}
+#bg{
+    background-color: cornsilk;
+    border: darkgoldenrod solid;
+    padding: 2rem;
 }

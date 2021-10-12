@@ -26,29 +26,34 @@ body {
     padding: 2rem;
 }
 
+nav {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    display: block;
+}
+
 nav a:link {
     text-decoration: none;
     color: #FFF;
-    background: steelblue;
-    font-size: 1rem;
-    font-weight: bold;
     border: whitesmoke solid;
+    background-color: teal;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
 }
 
 nav a:visited {
     text-decoration: none;
     color: #FFF;
-    background: steelblue;
-    font-size: 1rem;
-    font-weight: bold;
-    border: whitesmoke solid;
+    background-color: teal;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
 }
 
 nav a:hover {
-    text-decoration: none;
-    color: #FFF;
     background: rgb(241, 186, 115);
-    font-size: 1rem;
-    font-weight: bold;
-    border: whitesmoke solid;
 }

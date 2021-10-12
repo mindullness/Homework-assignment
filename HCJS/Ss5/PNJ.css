@@ -1,0 +1,67 @@
+* {
+    background-color: linear-gradient( 0deg, rgba(216, 212, 212, 0.8), rgba(241, 239, 219, 0.911)), rgb(240, 240, 238);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 0.3rem 2rem;
+    margin: 0 2rem 2rem 2rem;
+}
+
+ul li {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li.leftList {
+    font-size: 1.8rem;
+    margin: -10vh 2vh 0vh 2vh;
+    padding-top: -1vh;
+}
+
+li.rightList {
+    font-size: 1.8rem;
+    margin: -10vh 2vh 0vh 2vh;
+    padding-top: -1vh;
+}
+
+li a img {
+    width: min-content;
+    background-color: transparent;
+}
+
+a img.PNJ-center {
+    display: block;
+    width: 60%;
+    margin: 1vh auto;
+    padding-top: -100%;
+}
+
+.btmNav ul li a {
+    font-size: 2rem;
+    padding: auto;
+    margin: 0rem 2rem 1rem 0.5rem;
+    align-content: center;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.topNav {
+    padding: auto;
+    margin: 0% 2% 1% 0.5%;
+}
+
+.btmNav li a:hover {
+    text-decoration: underline;
+    color: burlywood;
+}

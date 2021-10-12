@@ -1,4 +1,4 @@
-*{
+* {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1rem;
     text-align: justify;
@@ -6,13 +6,49 @@
     margin-right: 1rem;
     text-indent: 0.5rem;
 }
-.hot{
+
+body {
+    background-image: url('/Ss4/image/anywhere.png');
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hot {
     color: rgb(255, 0, 0);
     font-style: italic;
     font-weight: bold;
 }
-#bg{
+
+#bg {
     background-color: cornsilk;
     border: darkgoldenrod solid;
     padding: 2rem;
+}
+
+nav a:link {
+    text-decoration: none;
+    color: #FFF;
+    background: steelblue;
+    font-size: 1rem;
+    font-weight: bold;
+    border: whitesmoke solid;
+}
+
+nav a:visited {
+    text-decoration: none;
+    color: #FFF;
+    background: steelblue;
+    font-size: 1rem;
+    font-weight: bold;
+    border: whitesmoke solid;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: #FFF;
+    background: rgb(241, 186, 115);
+    font-size: 1rem;
+    font-weight: bold;
+    border: whitesmoke solid;
 }

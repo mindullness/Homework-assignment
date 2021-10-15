@@ -3,4 +3,4 @@ Fpt-Aptech
 
 Homeworks to preview!
 
-https://maaguaete.github.io/Homework-assignment/HCJS/LAB04/HomeCoffee.html
+https://github.com/Maaguaete/Homework-assignment/tree/main/HCJS/LAB04/HomeCoffee.html

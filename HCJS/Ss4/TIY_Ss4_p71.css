@@ -1,0 +1,59 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-indent: 0.5rem;
+}
+
+body {
+    background-image: url('/Ss4/image/anywhere.png');
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hot {
+    color: rgb(255, 0, 0);
+    font-style: italic;
+    font-weight: bold;
+}
+
+#bg {
+    background-color: cornsilk;
+    border: darkgoldenrod solid;
+    padding: 2rem;
+}
+
+nav {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    display: block;
+}
+
+nav a:link {
+    text-decoration: none;
+    color: #FFF;
+    border: whitesmoke solid;
+    background-color: teal;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
+}
+
+nav a:visited {
+    text-decoration: none;
+    color: #FFF;
+    background-color: teal;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block !important;
+}
+
+nav a:hover {
+    background: rgb(241, 186, 115);
+}

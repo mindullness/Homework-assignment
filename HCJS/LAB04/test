@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB GUIDE 4</title>
+    <style>
+            #part1 {
+            border: black solid thin;
+        }
+        
+        .tips {
+            text-align: center;
+            color: #CABFB5;
+            font-size: 16px;
+        }
+        
+        .posted {
+            text-align: center;
+            color: #8F6C46;

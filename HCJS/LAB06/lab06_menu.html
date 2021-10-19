@@ -9,45 +9,60 @@
     <style>
         table {
             position: relative;
-            width: 90%;
-            margin: auto;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            overflow-x: auto;
+            box-sizing: border-box;
         }
         
         td {
-            border: black solid 1px;
-            max-width: 50px;
-            height: auto;
+            width: 25%;
+            text-align: center;
+            font-size: .8em;
+            padding: 0;
+            margin: 0;
+            object-fit: cover;
+            position: relative;
         }
         
         img {
-            max-width: 80%;
-            min-width: 80%;
-            height: auto;
-            object-fit: contain;
+            width: 50%;
+            position: relative;
+            display: block;
+            margin: auto;
+            padding: 0;
+            padding-bottom: 0.8em;
         }
         
         #spotlight {
+            width: 100%;
+        }
+        
+        td:nth-child(3) {
             width: 50%;
         }
     </style>
 </head>
 
 <body>
-    <h2>Table Demo</h2>
+    <h2>Menu</h2>
     <hr>
     <table>
         <tr>
-            <td><img src="/HCJS/LAB06/imageTemp/Chocolate.png" alt="">Chocolate</td>
-            <td><img src="/HCJS/LAB06/imageTemp/lemon-posset.jpg" alt=""></td>
-            <td colspan="3" rowspan="50%" id="spotlight"></td>
+            <td><img src="/HCJS/LAB06/imageTemp/roasted-brussel-sprouts.jpg" alt="">Chocolate</td>
+            <td><img src="/HCJS/LAB06/imageTemp/lemon-posset.jpg" alt="">Lemon</td>
+            <td colspan="4" rowspan="4" style="font-size:1em;"><img id="spotlight" src="/HCJS/LAB06/imageTemp/salmon.jpg" alt="">
+                <div>Salmon</div>
+            </td>
         </tr>
         <tr>
-            <td><img src="/HCJS/LAB06/imageTemp/roasted-brussel-sprouts.jpg" alt=""></td>
-            <td><img src="/HCJS/LAB06/imageTemp/zucchini-cake.jpg" alt=""></td>
+            <td><img src="/HCJS/LAB06/imageTemp/roasted-brussel-sprouts.jpg" alt="">Sprouts</td>
+            <td><img src="/HCJS/LAB06/imageTemp/zucchini-cake.jpg" alt="">Zucchini cake</td>
         </tr>
         <tr>
-            <td><img src="" alt=""></td>
-            <td><img src="" alt=""></td>
+            <td><img src="/HCJS/LAB06/imageTemp/lemon-posset.jpg" alt="">Lemon posset</td>
+            <td><img src="/HCJS/LAB06/imageTemp/roasted-brussel-sprouts.jpg" alt="">Roasted brussel sprouts</td>
         </tr>
     </table>
 </body>

@@ -1,0 +1,46 @@
+table {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border: maroon solid thin;
+    text-align: center;
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: maroon;
+    font-size: 2.1em;
+}
+
+tr {
+    position: relative;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2px;
+}
+
+td {
+    display: inline;
+    font-size: x-large;
+    text-align: center;
+    margin: 0 1px;
+}
+
+#aquater td img {
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    height: auto;
+    padding: 1em 0;
+}
+
+#spotlight {
+    position: relative;
+    width: 80%;
+}

@@ -1,0 +1,110 @@
+define([
+    "jquery",
+    "globals",
+    "underscore",
+    "backbone",
+    "marionette",
+    "bootstrap"
+], function($, RT, _, Backbone, Marionette) {
+    var TrailerModal = Backbone.View.extend({
+        events: {
+            "click .closebutton": "closeTrailerModal",
+            "click .closeBtn": "closeTrailerModal"
+        },
+        initialize: function(options) {  
+            this.$el = options.el;
+        },
+        closeTrailerModal : function() {
+            this.$el.modal('hide');
+            if (null != this.currentTrailer) {
+                this.currentTrailer.close();
+                this.currentTrailer = null;
+            }
+        },
+        openNewModal: function(urlHLS, urlMP4, thumbnail, title, autostart, videoId, noAds) {
+            require(["RTVideo"], function(RTVideo) {
+                var options = {
+                    $el: this.$("#videoPlayer"),
+                    urlHLS: urlHLS,
+                    urlMP4: urlMP4,
+                    width: "100%",
+                    thumbnailImg: thumbnail,
+                    autostart: autostart,
+                    noAds: noAds,
+                    preroll: {
+                        dfpTarget: "video/trailers",
+                        custParams: {videoId: videoId},
+                        pageUrl: window.location.href
+                    }
+                };
+                if ($(window).width() < 768) {
+                    options.playerComplete = this.closeTrailerModal.bind(this);
+                }
+                this.currentTrailer = new RTVideo(options);
+
+                this.currentTrailer.on("end-warning", function(){
+                   this.$el.find(".player-poststitial").css("opacity", 1);
+                }.bind(this));
+            }.bind(this));
+            this.$el.modal();
+            this.$el.on("hidden.bs.modal", this.closeTrailerModal.bind(this));
+            dataLayer.push({'event': 'ModalTrailer', 'title': title });
+        }
+    });
+    
+    return Marionette.ItemView.extend({
+        events: {
+            "click .trailer_play_action_button": "openModal"
+        },
+        initialize: function(options) {
+            this.$el = options.el;
+            this.modalInit = false;
+            this.modalCallback = null;
+            this.trailerCarousel = null;
+            require(["text!" + RT.StaticHost + "/templates/modalTrailer.html"], function(modalTrailer) {
+                $("body").append(modalTrailer);
+                this.trailerModal = new TrailerModal({
+                    el: $("#newTrailerModal")
+                });
+                this.modalInit = true;
+                if (this.modalCallback) {
+                    this.modalCallback();
+                    this.modalCallback = null;
+                }
+            }.bind(this));
+
+            this.iframeInit = false;
+            this.iframeCallback = null;
+        },
+        changeVideo: function(options) {
+            this.trailerModal.currentTrailer.changeVideo(options);
+        },
+        openModal: function(ev) {
+            ev.preventDefault();
+            var clickedObject = $(ev.currentTarget);
+            if (this.modalInit) {
+                this.trailerModal.openNewModal(
+                    clickedObject.data("hls-url"),
+                    clickedObject.data("mp4-url"),
+                    clickedObject.data("thumbnail"),
+                    clickedObject.data("title"),
+                    true,
+                    clickedObject.data("video-id"),
+                    clickedObject.data("no-ads")
+                );
+            } else {
+                this.modalCallback = function() {
+                    this.trailerModal.openNewModal(
+                        clickedObject.data("hls-url"),
+                        clickedObject.data("mp4-url"),
+                        clickedObject.data("thumbnail"),
+                        clickedObject.data("title"),
+                        true,
+                        clickedObject.data("video-id"),
+                        clickedObject.data("no-ads")
+                    );
+                }.bind(this)
+            }
+        }
+    })
+});

@@ -1,0 +1,160 @@
+define(["jquery", "globals", "underscore", "App", "newsModel!", "newsView!", "text!../templates/movieTab.html", "text!../templates/tvTab.html", "text!../templates/newsTab.html", "text!../templates/trendingBar.html", "bootstrap"], function($, RT, _,  RTApp, NewsModel, NewsView, movieTabTemplate, tvTabTemplate, newsTabTemplate, trendingBarTemplate) {
+    RTApp.module("RTHeaderModule", function(RTHeaderModule, RTApp, Backbone, Marionette, $, _) {
+        _.templateSettings = {
+            interpolate: /\<\@\=(.+?)\@\>/gim,
+            evaluate: /\<\@(.+?)\@\>/gim
+        };
+        $("#mobileModalTrigger").click(function() {  $("#navMenu").modal("show") });
+       var HeaderMovieTabsView = Marionette.ItemView.extend({
+            template: _.template(movieTabTemplate),
+            templateHelpers: function() {
+                return {
+                    baseUrl: RT.rtUrl
+                }
+            }
+        });
+        var HeaderTvTabView = Marionette.ItemView.extend({
+            template: _.template(tvTabTemplate),
+            templateHelpers: function() {
+                return {
+                    baseUrl: RT.rtUrl
+                }
+            }
+        });
+        var HeaderNewsTabView = Marionette.ItemView.extend({
+            template: _.template(newsTabTemplate),
+            templateHelpers: function() {
+                return {
+                    baseUrl: RT.rtUrl
+                }
+            }
+        });
+        var TrendingView = Marionette.ItemView.extend({
+            template: _.template(trendingBarTemplate),
+
+             templateHelpers: {
+
+                    trimLink: function(link) {
+                        return link;
+                    },
+
+                    movieData: function() {
+                        return RT.Backbone.Models.TheaterData.movies.get(this.movieId);
+                    }
+                }
+        });
+        var HeaderDataModel = Backbone.Model.extend({
+            url: function() {
+                return RT.rtApiUrl + '/api/private/v1.0/wordpress/header';
+            },
+            sync: function(method, model, options) {
+                // Default JSON-request options.
+                var params = _.extend({
+                    type: 'GET',
+                    dataType: 'json',
+                    url: model.url(),
+                    processData: false
+                }, options);
+                // Make the request.
+                return $.ajax(params);
+            }
+        });
+
+        RTApp.start();
+        var headerDataModel = new HeaderDataModel();
+
+        headerDataModel.fetch().then(function() {
+            movieTabHeaderView = new HeaderMovieTabsView({
+                model: headerDataModel
+            });
+            movieTabHeaderView.render();
+            $('#movieMenuTab').append(movieTabHeaderView.$el);
+            tvTabView = new HeaderTvTabView({
+                model: headerDataModel
+            });
+            tvTabView.render();
+            $('#tvMenuTab').append(tvTabView.$el);
+            newsTabView = new HeaderNewsTabView({
+                model: headerDataModel
+            });
+            newsTabView.render();
+            $('#newsMenuTab').append(newsTabView.$el);
+            var newsItem = new NewsModel.NewsItems({
+                limit:2,
+                excludeColumn:39
+            });
+            newsItem.fetch({
+                success: function() {
+                    if (newsItem.size() > 0) {
+                        var newsView = new NewsView.NewsPanel({ collection: newsItem });
+                        newsView.render();
+                        $("#header-news-rtnews .newsContainer").prepend(newsView.$el);
+                    }
+                }
+            });
+            var hubItem = new NewsModel.NewsItems({
+                limit: 2,
+                hub: true
+            });
+            hubItem.fetch({
+                success: function() {
+                    if (hubItem.size() > 0) {
+                        var newsView = new NewsView.NewsPanel({ collection: hubItem });
+                        newsView.render();
+                        $("#header-news-guides .newsContainer").prepend(newsView.$el);
+                    }
+                }
+            });
+            var totalRecallItem = new NewsModel.NewsItems({
+                limit:2,
+                column:39
+            });
+            totalRecallItem.fetch({
+                success: function() {
+                    if (totalRecallItem.size() > 0) {
+                        var newsView = new NewsView.NewsPanel({ collection: totalRecallItem });
+                        newsView.render();
+                        $("#header-news-best-worst .newsContainer").prepend(newsView.$el);
+                    }
+                }
+            });
+            trendingView = new TrendingView({
+                model: headerDataModel,
+                el: '.trendingEl'
+            });
+            trendingView.render();
+        });
+        
+        require([
+            RT.rtUrl + "/static/dist/vendor.min.js"
+        ], function() {
+            require([
+                RT.rtUrl + "/static/dist/common-pure-react.min.js"
+            ], function() {
+                require([
+                    RT.rtUrl + "/static/dist/fullscreen-search.min.js"
+                ], function(fullscreenSearch) {
+                    RT.PrivateApiV2FrontendHost = RT.rtUrl;
+                    RT.StaticHost = RT.rtUrl;
+                    RT.Host = RT.rtUrl;
+                    fullscreenSearch.mountDropdown(document.getElementById('desktop-search-root'));
+                    fullscreenSearch.attach(document.getElementById('mobile-search-button'));
+                });
+            });
+        });
+
+/*
+        var staticHostVar = RT.rtApiUrl + '/static';
+        require([
+            "search",
+            "text!" + staticHostVar + "/templates/SearchModal.item.movie.html",
+            "text!" + staticHostVar + "/templates/SearchModal.item.tv.html",
+            "text!" + staticHostVar + "/templates/SearchModal.item.celeb.html",
+            "text!" + staticHostVar + "/templates/SearchModal.item.critic.html",
+            "text!" + staticHostVar + "/templates/SearchModal.item.franchise.html"
+        ], function (SearchView, MovieTemplate, TvTemplate, CelebTemplate, CriticTemplate, FranchiseTemplate) {
+            new SearchView({ el : $(".desktopNav"), MovieTemplate : MovieTemplate, TvTemplate : TvTemplate,  CelebTemplate : CelebTemplate, CriticTemplate : CriticTemplate, FranchiseTemplate: FranchiseTemplate, environment: RT.rtUrl });
+            new SearchView({ el : $(".mobileNav"), MovieTemplate : MovieTemplate, TvTemplate : TvTemplate,  CelebTemplate : CelebTemplate, CriticTemplate : CriticTemplate, FranchiseTemplate: FranchiseTemplate, environment: RT.rtUrl });
+        });*/
+    });
+});

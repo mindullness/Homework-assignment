@@ -1,8 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 table {
+    position: relative;
     display: block;
-    width: 80%;
-    height: auto;
+    width: 90%;
     margin: 0 auto;
+    height: auto;
     border: maroon solid thin;
     text-align: center;
     box-shadow: 3px 3px 2px lightgrey;
@@ -17,30 +22,33 @@ h2 {
 
 tr {
     position: relative;
-    width: 90%;
-    height: auto;
     display: block;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
+    height: auto;
     padding: 2px;
 }
 
 td {
+    position: relative;
     display: inline;
     font-size: x-large;
     text-align: center;
     margin: 0 1px;
+    object-fit: contain;
 }
 
-#aquater td img {
-    display: inline-block;
+.aquater td img {
     position: relative;
+    display: inline-block;
     width: 20%;
     height: auto;
     padding: 1em 0;
 }
 
-#spotlight {
+.spotlight {
     position: relative;
     width: 80%;
+    height: auto;
 }

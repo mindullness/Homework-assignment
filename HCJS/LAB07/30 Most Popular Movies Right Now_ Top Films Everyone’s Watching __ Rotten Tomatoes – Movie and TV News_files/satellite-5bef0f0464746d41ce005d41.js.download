@@ -1,0 +1,19 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var trackerCounter = 0;
+var trackerInterval = setInterval(function(){
+  trackerCounter++;
+  try {
+    jQuery('a[data-mpx-fwsite]').each(function(){
+      var fwsite = jQuery(this).attr('data-mpx-fwsite');
+      if(!fwsite.match(/adobe_mc/)){
+        fwsite = _satellite.getVisitorId().appendVisitorIDsTo(fwsite);
+        fwsite = fwsite.replace(/\?/g,'&');
+        jQuery(this).attr('data-mpx-fwsite', fwsite);
+      }
+    });
+  }
+  catch(e){}
+  if(trackerCounter == 10)
+    clearInterval(trackerInterval);
+}, 500);
+});

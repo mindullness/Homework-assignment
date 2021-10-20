@@ -1,0 +1,240 @@
+@media (max-width: 767px){
+    .navbar-brand {
+        float: left!important;
+        margin-left: 0!important;
+        max-height: 44px!important;
+        max-width: 36%!important;
+        padding: 5px!important;
+        position: static!important;
+    }
+}
+
+.mob-nav-bottom {
+    background: rgba(52, 52, 52, 1.00);
+    border-top: 1px solid rgba(133, 133, 133, 1.00);
+    bottom: 0;
+    display: block;
+    font-size: 12px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.mob-nav-bottom .nav-list .nav-item {
+    text-align: center;
+}
+
+.mob-nav-bottom .nav-list .nav-item a {
+    color: white;
+    display: block;
+    font-size: 10px;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.mob-nav-bottom .nav-list .nav-item a {
+    color: white;
+    display: block;
+    font-size: 10px;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.mob-nav-bottom .nav-list .nav-item a:hover,
+.mob-nav-bottom .nav-list .nav-item a.active {
+    color: rgba(252, 236, 52, 1.00);
+}
+
+.mob-nav-bottom .nav-list .nav-item a i {
+    font-size: 25px;
+    display: block;
+    top: 2px;
+}
+
+.nav-list,
+.mobile-menu-panel {
+    display: flex;
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -moz-box-flex: 0;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal
+}
+
+.nav-item {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-positive: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+    -webkit-flex-basis: 0;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+.mobile-nav-overlay {
+    background: rgba(0, 0, 0, .50);
+    bottom: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.mobile-menu-panel {
+    background: rgba(21, 85, 9, 1.00);
+    bottom: 54px;
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.mobile-menu-panel .nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, .35);
+    color: rgba(255, 255, 255, 1.0);
+    font-size: 12px;
+    padding: 7px 10px;
+    text-transform: uppercase;
+}
+
+.login-signup-box a {
+    -webkit-box-shadow: 0 0 0 1px rgba(255,255,255,0.35) inset;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.35) inset;
+    -webkit-transition: color 0.25s ease;
+    -o-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+    border: 0;
+    border-radius: 6px;
+    background-color: transparent;
+    background-image: none;
+    color: rgba(255, 255, 255, 1.0);
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 25px;
+    margin-bottom: 0;
+    min-width: 66px;
+    outline: 0;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.login-signup-box a:hover,
+.login-signup-box a:active {
+    background-color: rgba(255, 255, 255, .35);
+    background-position: 0 -15px;
+    color: rgba(21, 85, 9, 1.00);
+}
+
+.login-signup-box a:first-of-type {
+    margin-right: 6px;
+}
+
+.social-media-box {
+    height: 26px;
+}
+
+.social-media-box a {
+    color: rgba(255, 255, 255, 1.00);
+    font-size: 26px;
+    height: 26px;
+    position: relative;
+    top: -5px;
+    width: 26px;
+}
+
+.social-media-box a:first-of-type {
+    margin-right: 5px;
+}
+
+/**OPENED MENU**/
+.menu-opened .mobile-menu-panel {
+    -webkit-animation: drop-down 0.35s 1;
+    -o-animation: drop-down 0.35s 1;
+    animation: drop-down 0.35s 1;
+    display: block;
+}
+
+.menu-opened .mobile-nav-overlay {
+    -webkit-animation: overlay-fade 0.25s 1;
+    -o-animation: overlay-fade 0.25s 1;
+    animation: overlay-fade 0.25s 1;
+    display: block;
+}
+
+.menu-opened .mob-nav-bottom li:last-of-type a {
+    color: rgba(252, 236, 52, 1.00);
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+/**MOBILE MENU PANEL ANIMATION**/
+@-webkit-keyframes drop-down {
+  0%   { height: 0; }
+  100% { height: 71px; }
+}
+@-moz-keyframes drop-down {
+    0%   { height: 0; }
+    100% { height: 71px; }
+}
+@-o-keyframes drop-down {
+    0%   { height: 0; }
+    100% { height: 71px; }
+}
+@keyframes drop-down {
+    0%   { height: 0; }
+    100% { height: 71px; }
+}
+
+/**OVERLAY FADE ANIMATION**/
+@-webkit-keyframes overlay-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes overlay-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes overlay-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes overlay-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -8,92 +8,153 @@
     <title>Top 5 movies</title>
     <style>
         body {
-            display: inline-block;
             border: tan solid medium;
-            width: 90%;
-            margin: auto;
+            width: 80%;
+            margin: 0 auto;
             padding: 10px;
         }
         
-        #cinema {
-            object-fit: contain;
-            max-width: 50%;
-            height: auto;
+        header {
+            background-image: url("/HCJS/LAB07/image/cinema.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: lighten;
+            height: 250px;
+            width: 100%%;
+            padding: 1em;
         }
         
         table {
-            border: lightgreen solid medium;
+            background-color: rgba(114, 163, 202, 0.2);
+            border: rgba(129, 179, 129, 0.3) solid medium;
             width: 100%;
-        }
-        
-        tr {
-            border: lightgreen solid medium;
             text-align: center;
         }
         
-        th:first-child {
-            width: 0.5em;
-        }
-        
         th {
-            height: 2em;
+            border: rgba(189, 94, 212, 0.3) solid thin;
+            padding: 1em;
         }
         
         td {
-            border: mediumorchid solid medium;
+            border: rgba(189, 94, 212, 0.3) solid thin;
+            padding: 0.7em;
+            height: 100%;
+        }
+        
+        td:first-child {
+            text-align: left;
+        }
+        
+        td:nth-child(3) {
+            text-align: justify;
+            width: 20%;
+        }
+        
+        td:nth-child(6) {
+            text-align: justify;
+            width: 35%;
+        }
+        
+        h1,
+        h3 {
+            color: whitesmoke;
+            font-variant: small-caps;
+            font-weight: bolder;
+        }
+        
+        p {
+            font-variant: small-caps;
+            font-weight: bolder;
+            color: rgb(226, 21, 82);
+            font-size: x-large;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        small {
+            font-style: italic;
+            color: none;
         }
     </style>
 </head>
 
 <body>
-
-    <h2>Top 5 Movies</h2>
-    <p><em>Top 5 as rated by me follow-up homework</em></p>
-    <hr>
-    <img id="cinema" style="display: block;" src="/HCJS/LAB07/image/cinema.jpg" alt="Cinema">
+    <header>
+        <h1 style="padding-top: 0.8em;">Top 5 Movies</h1>
+        <h3><em>Top 5 as rated by me follow-up homework</em><br></h3>
+        <hr width="30%" style="float: left;">
+    </header>
     <table>
         <tr>
             <th><em>Rank & Title</em></th>
             <th>Director</th>
             <th>Cast List</th>
             <th>Nation</th>
-            <th>Profit</th>
+            <th>Worldwide gross</th>
             <th>Plot</th>
         </tr>
         <tr>
-            <td>1. Inglourious Basterds</td>
+            <td> 1.
+                <a href="https://maaguaete.github.io/Homework-assignment/HCJS/LAB07/L07_movie1.html">
+                    <p>Inglourious Basterds</p>
+                </a>
+            </td>
+            <td>Quentin Tarantino</td>
+            <td>Brad Pitt <small>(as Lt. Aldo Raine)</small>, Christoph Waltz <small>(as Col. Hans Landa)</small>, Mélanie Laurent <small>(as Shosanna)</small>, Eli Roth <small>(as Sgt. Donny Donowitz)</small>, Michael Fassbender <small>(as Lt. Archie Hicox)</small>,
+                Diane Kruger <small>(as Bridget von Hammersmark) </small><a href="https://www.imdb.com/title/tt0361748/fullcredits" alt="Cast List">...see more</a></td>
+            <td>Germany</td>
+            <td>
+                <a href="https://www.the-numbers.com/movie/Inglourious-Basterds#tab=summary">$321.4 million</a></td>
+            <td>A few Jewish soldiers are on an undercover mission to bring down the Nazi government and put an end to the war. Meanwhile, a woman wants to avenge the death of her family from a German officer.</td>
+        </tr>
+        <tr>
+            <td>2.
+                <a href="https://maaguaete.github.io/Homework-assignment/HCJS/LAB07/L07_movie2.html">
+                    <p>Game Of Thrones</p>
+                </a>
+            </td>
+            <td>Alan Taylor <br>Alex Graves <br>Mark Mylod <br>Jeremy Podeswa</td>
+            <td>Kit Harington <small>(as Jon Snow - Aegon Targaryen)</small>, Emilia Clarke <small>(as Daenerys Targaryen)</small>, Peter Dinklage <small>(as  Tyrion Lannister)</small>, Lena Headey <small>(as Cersei Lannister)</small>, Maisie Williams
+                <small>(as Arya Stark)</small>, Nikolaj Coster-Waldau <small>(as Jaime Lannister) </small><a href="https://www.imdb.com/title/tt0944947/fullcredits?ref_=tt_ov_st_sm" alt="Cast List">...see more</a></td>
+            <td>United States of America</td>
+            <td><a href="https://www.finance-monthly.com/2019/05/how-much-money-has-hbo-made-from-game-of-thrones/">$3.1 Billion</a></td>
+            <td>Game of Thrones is roughly based on the storylines of the A Song of Ice and Fire book series by George R. R. Martin, set in the fictional Seven Kingdoms of Westeros and the continent of Essos. The series follows several simultaneous plot lines.
+                The first story arc follows a war of succession among competing claimants for control of the Iron Throne of the Seven Kingdoms, with other noble families fighting for independence from the throne. The second concerns the exiled scion's
+                actions to reclaim the throne; the third chronicles the threat of the impending winter, as well as the legendary creatures and fierce peoples of the North. Showrunner David Benioff jokingly suggested "The Sopranos in Middle-earth" as Game
+                of Thrones's tagline, referring to its intrigue-filled plot and dark tone in a fantasy setting of magic and dragons.</td>
+        </tr>
+        <tr>
+            <td>3.
+                <a href="https://maaguaete.github.io/Homework-assignment/HCJS/LAB07/L07_movie3.html">
+                    <p>Better Call Saul</p>
+                </a>
+            </td>
+            <td>George Vincent Gilligan Jr.</td>
+            <td>Bob Odenkirk <small>(as Jimmy McGill)</small>, Jonathan Banks <small>(as Mike Ehrmantraut)</small>, Rhea Seehorn <small>(as Kim Wexler)</small>, Patrick Fabian <small>(as Howard Hamlin)</small>, Michael Mando
+                <small>(as Nacho Varga)</small>, Giancarlo Esposito <small>(as Gus Fring) </small><a href="https://www.imdb.com/title/tt3032476/fullcredits?ref_=tt_cl_sm">...see more</a></td>
+            <td>United States of America</td>
+            <td>Unknown</td>
+            <td>Better Call Saul follows the transformation of James "Jimmy" McGill (Bob Odenkirk), a former con artist who is trying to become a respectable lawyer, into the personality of the flamboyant criminal lawyer Saul Goodman (a play on the phrase
+                "[it]'s all good, man!"), over the six-year period prior to the events of Breaking Bad, spanning from approximately 2002 to 2008</td>
+        </tr>
+        <tr>
+            <td>4.
+                <p>The Witcher</p>
+            </td>
             <td></td>
-            <td> </td>
-            <td> </td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
-            <td>2. Game Of Thrones</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>3. Better Call Saul</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>4. The Witcher</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>5. Aladdin <small>(as lab-homework)</small></td>
+            <td>5.
+                <p>Aladdin <small><br>(as lab-homework)</small></p>
+            </td>
             <td></td>
             <td></td>
             <td></td>

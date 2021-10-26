@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        h3,
+        b {
+            color: blue;
+        }
+        
+        .left {
+            text-align: left;
+        }
+        
+        mark {
+            background-color: transparent;
+            color: red;
+        }
+        
+        table {
+            margin: 3em auto;
+        }
+        
+        td:first-child {
+            text-align: right;
+            padding-right: 0.6em;
+        }
+        
+        td:last-child {
+            text-align: left;
+        }
+        
+        tr:last-child td {
+            text-align: center;
+            padding-top: 1em;
+        }
+        
+        tr:last-child td input {
+            background-color: rgb(181, 178, 173);
+            box-shadow: none;
+        }
+        
+        tr:last-child td input:hover {
+            background-color: rgba(128, 128, 128, 0.303);
+        }
+        
+        tr:nth-child(6) input,
+        tr:nth-child(4) input,
+        tr:nth-child(5) input {
+            min-width: 90%;
+        }
+        
+        input,
+        select,
+        textarea {
+            box-shadow: -1px -1px 1px gray;
+            border-top-width: 0.15em;
+            border-left-width: 0.15em;
+            border-bottom-width: thin;
+            border-right-width: thin;
+            border-color: rgba(128, 128, 128, 0.6);
+        }
+        
+        input:focus {
+            background-color: rgba(188, 199, 199, 0.3);
+            box-shadow: -1px -1px 1px gray;
+            border-top-width: 0.15em;
+            border-left-width: 0.15em;
+            border-bottom-width: thin;
+            border-right-width: thin;
+            border-color: rgba(128, 128, 128, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>REGISTRATION FORM</h3>
+    <div class="left">
+        <p><b>Notes:</b><br>1. Fields with (<mark>*</mark>) mark must be entered<br> 2. Login name have no spaces</p>
+    </div>
+    <form action="/Pretest/2/pretest2.html" id="registration">
+        <table>
+            <tr>
+                <td>
+                    <label for="user">Login name<mark>*</mark></label>
+                </td>
+                <td>
+                    <input type="text" name="user" id="user" minlength="5" required autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pass">Password<mark>*</mark></label></td>
+                <td>
+                    <input type="password" name="pass" id="pass" minlength="5" required autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password confirm">Password Confirm<mark>*</mark></label></td>
+                <td>
+                    <input type="password" name="pass_conf" id="pass_conf" required autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="fname">Full name<mark>*</mark></label></td>
+                <td>
+                    <input type="text" class="fname" id="fname" required autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address">Address<mark>*</mark></label></td>
+                <td>
+                    <input type="text" name="address" id="address" autocomplete="off" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email<mark>*</mark></label></td>
+                <td>
+                    <input type="email" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="gender">Sex &nbsp;</label></td>
+                <td><input type="radio" name="gender" id="gender" value="Male" checked>Male
+                    <input type="radio" name="gender" id="gender" value="Female">Female
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dob">Date of birth &nbsp;</label></td>
+                <td> <input type="date" name="dob" id="dob" min="1900-01-31" max="2004-11-23" value="1989-01-01"></td>
+            </tr>
+            <tr>
+                <td><label for="country">Country &nbsp;</label></td>
+                <td>
+                    <select name="city" id="city">
+                        
+                        <option value="SGN">Ho Chi Minh city</option>
+                        <option value="HUI">Hue</option>
+                        <option value="HAN">Hanoi</option>
+                        <option value="DAD">Danang</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone Number &nbsp;</label></td>
+                <td>
+                    <input type="tel" autocomplete="off" name="telNo" id="telNo" maxlength="5" pattern="[0-9]{}" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="hobbies">Hobbies &nbsp;</label></td>
+                <td>
+                    <input type="checkbox" name="hobbies" id="hobbie3" value="Swimming">Swimming
+                    <input type="checkbox" name="hobbies" id="hobbie1" value="Dancing">Dancing
+                    <input type="checkbox" name="hobbies" id="hobbie2" value="Shopping">Shopping
+                </td>
+            </tr>
+            <tr>
+                <td><label for="comment"></label>Comment &nbsp;</td>
+                <td style="padding-top: 0.5em;">
+                    <textarea name="comment" id="comment" cols="30" rows="3" style="overflow-y: scroll;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        document.getElementById("registration").onsubmit = function() {
+
+            let pass = document.getElementById("pass").value;
+            let pass_conf = document.getElementById("pass_conf").value;
+            if (pass !== pass_conf) {
+                alert("Password should be same as Password Confirm");
+
+                document.getElementById("pass_conf").focus();
+                return false;
+            } else {
+                alert("Welcome to Education Web");
+            }
+        }
+    </script>
+</body>
+
+</html>

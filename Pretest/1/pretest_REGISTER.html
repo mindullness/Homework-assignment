@@ -109,7 +109,7 @@
             </tr>
             <tr>
                 <td><label for="dob">Date of Birth</label></td>
-                <td> <input type="date" name="dob" id="dob" min="1990-01-31" max="2004-11-23" value="1996-02-15"></td>
+                <td> <input type="date" name="dob" id="dob" min="1990-01-31" max="2000-01-01"></td>
             </tr>
             <tr>
                 <td><label for="address">Address</label></td>
@@ -157,6 +157,20 @@
         </table>
     </form>
     <script>
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth() + 1; //January is 0!
+        let yyyy = today.getFullYear() - 17; // Tren 17 tuoi
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("dob").setAttribute("max", today);
+
         function popUp() {
 
 

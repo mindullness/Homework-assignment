@@ -218,12 +218,12 @@
             var month = monthObj.value;
             var day = dayObj.value;
             if (month == 2) {
-                if (!isLeap) {
-                    if (day > 28) {
+                if (isLeap) {
+                    if (day > 29) {
                         setDay();
                     }
                 } else {
-                    if (day > 29) {
+                    if (day > 28) {
                         setDay();
                     }
                 }

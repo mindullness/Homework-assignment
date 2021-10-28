@@ -215,15 +215,15 @@
         }
 
         function checkDay() { // Check the day is valid or not
-            let month = monthObj.value;
-            let day = dayObj.value;
+            var month = monthObj.value;
+            var day = dayObj.value;
             if (month == 2) {
                 if (!isLeap) {
                     if (day > 28) {
                         setDay();
                     }
                 } else {
-                    if (day > 30) {
+                    if (day > 29) {
                         setDay();
                     }
                 }

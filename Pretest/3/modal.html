@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Bootstrap Modal Demo</h2>
+        <hr>
+
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Login
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sign-in</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" class="form-control" id="email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="remember">
+                                <label class="form-check-label">Remember Me</label>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

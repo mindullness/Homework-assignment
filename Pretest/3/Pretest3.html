@@ -6,125 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pretest 3</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-        
-        body {
-            display: block;
-            text-align: center;
-            margin: 0 auto;
-        }
-        
-        header {
-            display: block;
-            text-align: center;
-            width: 98%;
-            margin: 0 auto;
-        }
-        
-        nav {
-            text-align: center;
-            width: 100%;
-            margin: 0 auto 0.6em auto;
-            padding: 0;
-        }
-        
-        ul {
-            border-top: saddlebrown 2px solid;
-            border-bottom: saddlebrown 2px solid;
-            width: 100%;
-            padding: 0 auto;
-            margin: 0 auto;
-            list-style-type: none;
-            overflow-x: hidden;
-            white-space: nowrap;
-            object-fit: cover;
-        }
-        
-        li {
-            text-align: center;
-            font-weight: bold;
-            display: inline-block;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        
-        a {
-            text-transform: uppercase;
-            text-decoration: none;
-            font-size: x-small;
-            margin: 0;
-            color: rgb(75, 120, 162);
-        }
-        
-        #aboutUs blockquote {
-            width: 150px;
-            margin: 2px;
-            padding-left: 2px;
-            padding-right: 2px;
-            font-size: 1.9em;
-            text-transform: capitalize;
-            font-family: cursive;
-            font-style: italic;
-            color: saddlebrown;
-            font-weight: 900;
-        }
-        
-        .container {
-            text-align: center;
-            display: block;
-            margin: 0 auto;
-            width: 80%;
-            object-fit: contain;
-        }
-        
-        .item1 {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .item2 {
-            width: 10%;
-            display: inline-block;
-            margin: 0 auto;
-        }
-        
-        .item1>img {
-            display: block;
-            padding-top: 5px;
-            object-fit: contain;
-            width: 450px;
-        }
-        
-        .item2>img {
-            display: block;
-            object-fit: contain;
-            width: 75px;
-            padding-top: 3px;
-        }
-        
-        footer {
-            position: relative;
-            display: block;
-            text-align: center;
-            width: 100%;
-            margin: 0 auto;
-            bottom: 15px;
-            font-size: small;
-            padding-top: 3em;
-        }
-    </style>
+    <link rel="stylesheet" href="/Pretest/3/Pretest3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
     <header>
-        <div>
-            <img style="width: 150px; margin: 0 auto;" src="/Pretest/3/p3_logo.png" alt="">
+        <div class="logo">
+            <img src="/Pretest/3/p3_logo.png" alt="">
         </div>
         <nav>
             <ul>
@@ -144,7 +37,7 @@
                     <a href="">e-library</a>
                 </li>
                 <li>
-                    <a href="">sign up</a>
+                    <a href="#" data-toggle="modal" data-target="#myModal">sign up</a>
                 </li>
                 <li>
                     <a href="">sign in</a>
@@ -153,16 +46,89 @@
         </nav>
     </header>
     <div class="container">
-        <div class="item1"><img src="/Pretest/3/p3_pic.PNG" alt=""></div>
+        <div class="item1"><img src="https://maaguaete.github.io/Homework-assignment/Pretest/3/p3_pic.PNG" alt=""></div>
         <div class="item2">
-            <img src="/Pretest/3/p3_pic2.jpg" alt="">
-            <img src="/Pretest/3/p3_pic3.jpg" alt="">
-            <img src="/Pretest/3/p3_pic4.jpg" alt="">
+            <img src="https://maaguaete.github.io/Homework-assignment/Pretest/3/p3_pic2.jpg" alt="">
+            <img src="https://maaguaete.github.io/Homework-assignment/Pretest/3/p3_pic3.jpg" alt="">
+            <img src="https://maaguaete.github.io/Homework-assignment/Pretest/3/p3_pic4.jpg" alt="">
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content" style="box-shadow: 2px 2px 5px black; padding: 15px;">
+
+                <!-- Modal Header -->
+                <div id="modal-header">
+                    <h4 class="modal-title">Student Information</h4>
+                    <hr>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" style="padding: 0;">
+
+                    <form action="" onsubmit="return popUp();" method="post">
+                        <table>
+                            <tr>
+                                <td><label for="fname">Name</label></td>
+                                <td>
+                                    <input type="text" class="fname" id="fname" placeholder="as" required autocomplete="off" minlength="6" maxlength="30">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="gender">Gender</label></td>
+                                <td><input type="radio" name="gender" id="gender" value="Male" checked>Male
+                                    <input type="radio" name="gender" id="gender" value="Female">Female</td>
+                            </tr>
+
+                            <tr>
+                                <td><label for="address">Address</label></td>
+                                <td>
+                                    <input type="text" name="address" id="address" autocomplete="off" placeholder="address">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email</label></td>
+                                <td>
+                                    <input type="email" name="email" id="email" placeholder="sa@yahoo.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="phone">Phone</label></td>
+                                <td>
+                                    <input type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="xxx-xxxxx[xxx]" pattern="[0-9]{3}-[0-9]{5}[0-9]{3}" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="city">Qualification</label></td>
+                                <td>
+                                    <select name="degree" id="degree" style=" width: fit-content;">
+                                        <option value="Bachelor" >Bachelor degree</option>
+                                        <option value="Master">Master</option>
+                                        <option value="PhD">PhD</option>
+                                        <option value="">None</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Submit">
+                                </td>
+                                <td>
+                                    <input type="reset" value="Reset">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <footer>
         2021 FPT-Aptech School. All rights reserved
     </footer>
 </body>
+<script src="/Pretest/3/function_display.js"></script>
 
 </html>

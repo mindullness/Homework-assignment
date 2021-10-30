@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pretest 3</title>
-    <link rel="stylesheet" href="/Pretest/3/Pretest3.css">
+    <link rel="stylesheet" href="https://maaguaete.github.io/Homework-assignment/Pretest/3/Pretest3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -67,12 +68,12 @@
                 <!-- Modal body -->
                 <div class="modal-body" style="padding: 0;">
 
-                    <form action="" onsubmit="return popUp();" method="post">
+                    <form action="https://maaguaete.github.io/Homework-assignment/Pretest/3/Pretest3_successfull_registration.html" onsubmit="storeValue();" method="get">
                         <table>
                             <tr>
                                 <td><label for="fname">Name</label></td>
                                 <td>
-                                    <input type="text" class="fname" id="fname" placeholder="as" required autocomplete="off" minlength="6" maxlength="30">
+                                    <input type="text" class="name" id="name" placeholder="as" required autocomplete="off" minlength="6" maxlength="30">
                                 </td>
                             </tr>
                             <tr>
@@ -96,16 +97,16 @@
                             <tr>
                                 <td><label for="phone">Phone</label></td>
                                 <td>
-                                    <input type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="xxx-xxxxx[xxx]" pattern="[0-9]{3}-[0-9]{5}[0-9]{3}" required>
+                                    <input type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="xxx-xxxxx[xxx]" pattern="[0-9]{3}-[0-9]{5}[0-9]{3}" required value="123-12345678">
                                 </td>
                             </tr>
                             <tr>
                                 <td><label for="city">Qualification</label></td>
                                 <td>
-                                    <select name="degree" id="degree" style=" width: fit-content;">
-                                        <option value="Bachelor" >Bachelor degree</option>
-                                        <option value="Master">Master</option>
-                                        <option value="PhD">PhD</option>
+                                    <select name="qualif" id="qualif" style=" width: fit-content;">
+                                        <option value="Bachelor degree" >Bachelor degree</option>
+                                        <option value="Master degree">Master degree</option>
+                                        <option value="PhD degree">PhD degree</option>
                                         <option value="">None</option>
                                     </select>
                                 </td>
@@ -121,14 +122,18 @@
 
                         </table>
                     </form>
+
                 </div>
             </div>
+
         </div>
     </div>
     <footer>
+        <div id="dname"> asdf</div>
         2021 FPT-Aptech School. All rights reserved
     </footer>
 </body>
-<script src="/Pretest/3/function_display.js"></script>
+<script src="https://maaguaete.github.io/Homework-assignment/Pretest/3/function_display.js">
+</script>
 
 </html>

@@ -11,7 +11,7 @@ function display() {
     document.getElementById("d_name").innerHTML = sessionStorage.getItem("i_name");
     document.getElementById("d_gender").innerHTML = sessionStorage.getItem("i_gender");
     document.getElementById("d_address").innerHTML = sessionStorage.getItem("i_address");
-    document.getElementById("d_email").innerHTML = `<a href="#">${sessionStorage.getItem("i_email")}</a>`;
+    document.getElementById("d_email").innerHTML = `<a href="mailto:${sessionStorage.getItem("i_email")}">${sessionStorage.getItem("i_email")}</a>`;
     document.getElementById("d_telNo").innerHTML = sessionStorage.getItem("i_telNo");
     document.getElementById("d_qualif").innerHTML = sessionStorage.getItem("i_qualif");
 }

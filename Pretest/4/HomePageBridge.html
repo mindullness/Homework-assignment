@@ -13,70 +13,82 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/Pretest/4/Header.css">
     <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        
         .container {
-            position: absolute;
-            display: block;
-            margin: auto;
+            display: flex;
+            text-align: center;
+            margin-top: 1em;
+            overflow: hidden;
+        }
+        
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+        
+        div.gallery img {
             width: 100%;
-            height: 600px;
-            text-align: left;
-        }
-        
-        .item1 {
-            display: inline-block;
-            width: 780px;
-            margin: 0;
-            padding: 0;
-            object-fit: contain;
-        }
-        
-        .item2 {
-            position: absolute;
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .item1 img {
             height: auto;
-            width: 760px;
-            padding-top: 5px;
-            padding-bottom: 5px;
         }
         
-        .item2 img {
-            display: block;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            height: auto;
-            width: 265px;
+        .responsive1 {
+            width: 80%;
+            text-align: centers;
+            display: inline-block;
+        }
+        
+        .responsive2 {
+            width: 28.5%;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
         }
     </style>
 </head>
 
-<body style="height: 720px;">
+<body>
     <header>
         <div class="logo">
             <img src="/Pretest/4/image/logo.jpg" alt="">
-            <span> amazing bridges</span>
+            <span>amazing bridges</span>
         </div>
         <nav>
             <ul>
-                <li><a href="">home</a></li>
+                <li><a href="/Pretest/4/HomePageBridge.html">home</a></li>
                 <li><a href="">world brides</a></li>
                 <li><a href="">top longest</a></li>
                 <li><a href="">top highest</a></li>
-                <li><a href="">contact</a></li>
+                <li><a href="/Pretest/4/contact.html">contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="item1"><img src="/Pretest/4/image/GoldenGate.jpg" alt=""></div>
+    <div class=" container">
+        <div class="item1">
+            <div class="gallery">
+                <img src="https://trucduy10.github.io/pretest/pretest4/image/GoldenGate.jpg" />
+            </div>
+        </div>
         <div class="item2">
-            <img src="/Pretest/4/image/bridge_2.jpg" alt="">
-            <img src="/Pretest/4/image/bridge_3.jpg" alt="">
-            <img src="/Pretest/4/image/bridge_4.jpg" alt="">
+            <div class="gallery">
+                <img src="https://trucduy10.github.io/pretest/pretest4/image/bridge_2.jpg" />
+            </div>
+            <div class="gallery">
+                <img src="https://trucduy10.github.io/pretest/pretest4/image/bridge_3.jpg" />
+            </div>
+            <div class="gallery">
+                <img src="https://trucduy10.github.io/pretest/pretest4/image/bridge_4.jpg" />
+            </div>
         </div>
     </div>
     <footer>

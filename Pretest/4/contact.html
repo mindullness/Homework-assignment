@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/Pretest/4/Header.css">
+    <style>
+        hr {
+            margin: 15px;
+            height: 0.4px;
+            background-color: rgba(0, 0, 0, 0.705);
+        }
+        
+        h3 {
+            margin: 1em 2.2em;
+            color: red;
+            text-shadow: rgba(0, 0, 0, 0.6) -1px -1px 2px;
+        }
+        
+        fieldset {
+            box-shadow: rgba(0, 0, 0, 0.726) 0px 0px 2px;
+            margin: 15px;
+            width: 50%;
+            background-color: transparent;
+        }
+        
+        @media screen and (max-width: 800px) {
+            fieldset {
+                width: 60%;
+                margin: 10px;
+            }
+            label[for="visit"] {
+                display: block;
+            }
+            textarea {
+                width: 100%;
+            }
+        }
+        
+        input[name="visit"] {
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
+            padding-right: 5px;
+        }
+        
+        input:required {
+            border: 1px solid gainsboro;
+            border-bottom: 2px solid blue;
+        }
+        
+        legend {
+            background-color: white;
+            width: auto;
+            font-size: 16px;
+            margin: 0;
+            border: none;
+        }
+        
+        fieldset div {
+            padding: 0.4em 0.5em;
+        }
+        
+        .btn {
+            background-color: blue;
+            color: rgba(255, 255, 255, 0.842);
+            border-radius: 25px;
+            border: blue;
+            padding: 4px 10px;
+        }
+        
+        .btn:hover {
+            color: rgba(255, 255, 255, 0.842);
+            box-shadow: 0 2px 2px black;
+            border-radius: 15px;
+            padding: 4px 13px;
+        }
+        
+        small {
+            color: red;
+            background-color: rgba(255, 255, 255, 0.842);
+        }
+        
+        fieldset div:last-child input {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/Pretest/4/image/logo.jpg" alt="">
+            <span> amazing bridges</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/Pretest/4/HomePageBridge.html">home</a></li>
+                <li><a href="">world brides</a></li>
+                <li><a href="">top longest</a></li>
+                <li><a href="">top highest</a></li>
+                <li><a href="/Pretest/4/contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+
+    <h3>Contact us</h3>
+
+    <form action="HomePageBridge.html" onsubmit="return validateForm();">
+        <fieldset>
+            <legend>Your Details: </legend>
+            <div>
+                <label for="fname">Name:</label>
+                <input type="text" id="name" name="name" minlength="3" required><small>*</small>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off"><small>*</small>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>Your Review: </legend>
+            <div><label for="fname">How did you hear about us?</label>
+                <select name="hear" id="hear" style="width: 8em; padding: 3px;">
+                    <option value="Google">Google</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Advert">Advert</option>
+                    <option value="Other">Other</option>
+                </select></div>
+            <div class="form-check form-check-inline"><label for="visit">Would you visit me again?</label>
+                <input class="form-check-input" type="radio" id="visit" name="visit" value="Yes">Yes
+                <input class="form-check-input" type="radio" id="visit" name="visit" value="No">No
+                <input class="form-check-input" type="radio" id="visit" name="visit" value="Maybe">Maybe
+            </div>
+            <div>
+                <label for="comment">Comments:</label><br>
+                <textarea rows="4" cols="40" id="comment" name="commnet"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" checked name="emailUpdate" id="emailUpdate">Sign me up for email updates
+            </div>
+            <div>
+                <input id="submit" type="submit" value="Submit review" class="btn">
+                <input type="reset" value="Reset" class="btn">
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</body>
+<script>
+    $(document).ready(function() {
+        $("#submit").click(function() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var hear = $("#hear").val();
+            var visit = $("#visit").val();
+            var comment = $("#comment").val();
+            var emailUpdate = $("#emailUpdate").val();
+            var dataString = 'name=' + name + '&email=' + email + '&hear=' + hear + '&visit=' + visit + '&comment=' + comment + '&emailUpdate=' + emailUpdate;
+            if (name == '') {
+                alert("The Name cannot be blank");
+            }
+            if (email == '') {
+                alert("The Email cannot be blank");
+            }
+
+        });
+    });
+    // function validateForm() {
+    //     var name = document.getElementById("name");
+    //     var email = document.getElementById("email");
+    //     var comment = document.getElementById("comment");
+    //     var hear = document.getElementById("hear");
+    //     var visit = document.getElementById("visit");
+    //     var emailUpdate = document.getElementById("emailUpdate");
+
+    //     if (name.value == "") {
+    //         alert("Name must be filled out");
+    //         name.focus();
+    //         return false;
+    //     }
+    //     if (email.value == "") {
+    //         alert("Email must be filled out");
+    //         email.focus();
+    //         return false;
+    //     }
+    //     if (comment.value == "null") {
+    //         alert("Comment must be filled out");
+    //         comment.focus();
+    //         return false;
+    //     }
+    //     if (hear.value == "") {
+    //         alert("How did you hear about us?");
+    //         hear.focus();
+    //         return false;
+    //     }
+    //     if (visit.value == "") {
+    //         alert("Would you visit us again?");
+    //         visit.focus();
+    //         return false;
+    //     }
+    //     if (emailUpdate.value == "") {
+    //         alert("Would you like to receive email updates?");
+    //         emailUpdate.focus();
+    //         return false;
+    //     }
+    //     return true;
+    // }
+</script>
+
+</html>

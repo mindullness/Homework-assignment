@@ -1,5 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    position: relative;
     border: 1px solid rgb(165, 140, 144);
     box-shadow: rgba(128, 128, 128, 0.404) 2px 2px 2px;
     width: 90%;
@@ -11,24 +14,21 @@ header {
     margin-top: 20px;
     display: block;
     padding: 0;
-    white-space: nowrap;
 }
 
-.logo img {
+.logo>img {
     padding-left: 15px;
-    overflow: hidden;
 }
 
-.logo span {
-    position: absolute;
-    top: 15px;
-    margin: 0 0px 0 5px;
+div span {
+    position: relative;
+    margin: 0 0 0 5px;
     padding-right: 5px;
-    display: inline;
+    display: inline-block;
     vertical-align: bottom;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: capitalize;
-    font-size: xx-large;
+    font-size: 1.8rem !important;
     text-shadow: 3px -1px 2px black;
     color: rgb(210, 210, 210);
     overflow: hidden;
@@ -62,7 +62,6 @@ li a {
     word-spacing: 3px;
     letter-spacing: 1px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: block;
     text-align: center;
     padding: 15px 15px;
     text-decoration: none;
@@ -75,12 +74,9 @@ li a:hover {
 }
 
 footer {
-    position: absolute;
-    display: block;
     text-align: center;
     width: 100%;
     margin: 0 auto;
-    bottom: 15px;
-    font-size: small;
-    padding-top: 3em;
+    font-size: x-small;
+    padding: 1em;
 }

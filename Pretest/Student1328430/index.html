@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        nav {
+            margin: 10px auto;
+            padding: 0;
+        }
+        
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li a {
+            text-transform: uppercase;
+            font-size: large;
+            padding: 0;
+            margin: 0;
+            color: rgb(78, 123, 155);
+        }
+        
+        li a:hover {
+            background-color: rgb(142, 210, 255);
+        }
+        
+        #dropdownMenuButton {
+            background-color: rgb(142, 210, 255);
+            color: white;
+            display: none;
+            border: none;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .logo img {
+                width: 15%;
+            }
+            .nav-item:not(:first-child) {
+                display: none;
+            }
+            #dropdownMenuButton {
+                background-color: rgb(142, 210, 255);
+                color: white;
+                display: block;
+            }
+        }
+        
+        table {
+            width: 100%;
+            text-align: center;
+            background-color: rgb(233, 251, 255);
+        }
+        
+        td:first-child {
+            font-size: 5em;
+            font-weight: 450;
+        }
+        
+        footer {
+            background-color: black;
+            color: white;
+            padding: 5px 0 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <div class="logo">
+                <img src="/Pretest/Student1328430/logo.png" alt="">
+            </div>
+            <nav>
+                <ul class="nav nav-fill justify-content-center" id="navMenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href=" ">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FEATURES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">OVERVIEW</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">PRICING</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">TEAM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+                    <button id="dropdownMenuButton"><i class="fa fa-bars" ></i></button>
+                </ul>
+
+            </nav>
+
+        </header>
+        <table>
+            <tr>
+                <td class="slogan">
+                    We're building Software for you
+                </td>
+                <td class="appimg">
+                    <img src="/Pretest/Student1328430/app.png" alt=" ">
+                </td>
+            </tr>
+        </table>
+
+        <footer>
+            Copyright &copy; by Hello Word Team - November, 2021
+        </footer>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $("#dropdownMenuButton").click(function() {
+            $(".nav-item:not(:first-child)").slideToggle("slow");
+        });
+    });
+</script>
+
+</html>

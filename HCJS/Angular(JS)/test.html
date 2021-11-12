@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div>
+        <h3>Nested controllers with model variables defined directly on the scopes
+        </h3>
+        (typing on an input field, with a data binding to the model, overrides the same variable of a parent scope)
+    </div>
+    <div ng-controller="firstControllerScope">
+        <h3>First controller</h3>
+        <strong>First name:</strong> {{firstName}}<br />
+        <br />
+        <label>Set the first name: <input type="text" ng-model="firstName"/></label><br />
+        <br />
+        <div ng-controller="secondControllerScope">
+            <h3>Second controller (inside First)</h3>
+            <strong>First name (from First):</strong> {{firstName}}<br />
+            <strong>Last name (new variable):</strong> {{lastName}}<br />
+            <strong>Full name:</strong> {{getFullName()}}<br />
+            <br />
+            <label>Set the first name: <input type="text" ng-model="firstName"/></label><br />
+            <label>Set the last name: <input type="text" ng-model="lastName"/></label><br />
+            <br />
+            <div ng-controller="thirdControllerScope">
+                <h3>Third controller (inside Second and First)</h3>
+
+                <label>Set the first name: <input type="text" ng-model="firstName"/></label><br />
+                <label>Set the middle name: <input type="text" ng-model="middleName"/></label><br />
+                <label>Set the last name: <input type="text" ng-model="lastName"/></label> <br />
+                <strong>First name (from First):</strong> {{$parent.$parent.firstName}}<br />
+                <strong>Middle name (new variable):</strong> {{middleName}}<br />
+                <strong>Last name (from Second):</strong> {{$parent.lastName}}<br />
+                <strong>Last name (redefined in Third):</strong> {{lastName}}<br />
+                <strong>Full name (redefined in Third):</strong> {{getFullName()}}<br />
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('firstControllerScope', function($scope) {
+        // Initialize the model variables
+        $scope.firstName = "Ten - mot";
+    });
+    app.controller('secondControllerScope', function($scope) {
+        // Initialize the model variables
+        $scope.lastName = "Ho - hai";
+        // Define utility functions
+        $scope.getFullName = function() {
+            return $scope.firstName + " " + $scope.lastName;
+        };
+    });
+    app.controller('thirdControllerScope', function($scope) {
+        // Initialize the model variables
+        $scope.middleName = "Whitelaw";
+        $scope.lastName = "Ho - ba";
+        // Define utility functions
+        $scope.getFullName = function() {
+            return $scope.firstName + " " + $scope.middleName + " " +
+                $scope.lastName;
+        };
+    });
+</script>
+
+</html>

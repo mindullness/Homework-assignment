@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="EventApp">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <h1> Event</h1>
+    <div ng-controller="eventcontroller">
+        New Members: <input type="text" ng-model="quantity" id="quantity" ng-keypress="total=''">
+        <br>
+        <br> Registration Fees: <input type="text" ng-model="fees" id="fees">
+        <input type="button" value="Calculate" ng-click="Calc()" />
+        <br>
+        <br>
+        <b>Total Amount<b>: {{total}}
+    </div>
+    <script>
+        var app = angular.module('EventApp', []);
+        app.controller('eventcontroller', function ($scope) {
+            $scope.quantity = 0;
+            $scope.fees = 0;
+            $scope.total = "";
+            $scope.Calc = function () {
+                if ($scope.quantity > 0 && $scope.fees > 0) {
+                    $scope.total = $scope.quantity * $scope.fees;
+                }
+                else {
+                    $scope.total = "Invalid Input";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 4 - Do It Yourself</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .card {
+            width: 100%;
+            height: auto;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h2>Session 4 - Do It Yourself</h2>
+        <hr>
+        <div>
+            <strong>Image URL: </strong>
+            <input type="text" ng-model="myLink" placeholder="Pass an image link here" class="col-6">
+        </div>
+        <br>
+        <div class="card-header-pills col-12">
+            <div class="card bg-secondary">
+                <div class="card-body">
+                    <img ng-src="{{myLink}}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let app = angular.module("myApp", []);
+    app.controller("myController", function($scope, $http) {
+        $scope.myLink = "";
+    });
+</script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretest 3</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div>
+        <h3>Nested controllers with model variables defined inside objects</h3>
+        (typing on an input field, with a data binding to the model, acts on a specific object without overriding variables)
+        <div ng-controller="firstControllerObj">
+            <h3>First controller</h3>
+            <strong>First name:</strong> {{firstModelObj.firstName}}<br />
+            <br />
+            <label>Set the first name: <input type="text" ng-model="firstModelObj.firstName" /></label>
+            <br />
+            <br />
+            <div ng-controller="secondControllerObj">
+                <h3>Second controller (inside First)</h3>
+                <strong>First name (from First):</strong> {{firstModelObj.firstName}}<br />
+                <strong>Last name (from Second):</strong> {{secondModelObj.lastName}}<br />
+                <strong>Full name:</strong> {{getFullName()}}<br />
+                <br />
+                <label>Set the first name: <input type="text" ng-model="firstModelObj.firstName" />
+                </label>
+                <br />
+                <label>Set the last name: <input type="text" ng-model="secondModelObj.lastName" /> </label><br />
+                <br />
+                <div ng-controller="thirdControllerObj">
+                    <h3>Third controller (inside Second and First)</h3>
+                    <strong>First name (from First):</strong> {{firstModelObj.firstName}}<br />
+                    <strong>Middle name (from Third):</strong> {{thirdModelObj.middleName}}<br />
+                    <strong>Last name (from Second):</strong> {{secondModelObj.lastName}}<br />
+                    <strong>Last name (from Third):</strong> {{thirdModelObj.lastName}}<br />
+                    <strong>Full name (redefined in Third):</strong> {{getFullName()}}<br />
+                    <br />
+
+                    <label>Set the first name: <input type="text" ng-model="firstModelObj.firstName" /> </label><br />
+                    <label>Set the middle name: <input type="text" ng-model="thirdModelObj.middleName" /> </label><br />
+                    <label>Set the last name: <input type="text" ng-model="thirdModelObj.lastName" /> </label>
+                </div>
+                <!--End thirdControllerObj-->
+
+            </div>
+            <!--End secondControllerObj-->
+        </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('firstControllerObj', function($scope) {
+        // Initialize the model object
+        $scope.firstModelObj = {
+            firstName: "Chris"
+        };
+    });
+    app.controller('secondControllerObj', function($scope) {
+        // Initialize the model object
+        $scope.secondModelObj = {
+            lastName: "Hemsworth"
+        };
+        // Define utility functions
+        $scope.getFullName = function() {
+            return $scope.firstModelObj.firstName +
+                " " +
+                $scope.secondModelObj.lastName;
+        };
+    });
+    app.controller('thirdControllerObj', function($scope) {
+        // Initialize the model object
+        $scope.thirdModelObj = {
+            middleName: "Whitelaw",
+            lastName: "Pine"
+        };
+        // Define utility functions
+        $scope.getFullName = function() {
+            return $scope.firstModelObj.firstName + " " +
+                $scope.thirdModelObj.middleName + " " +
+                $scope.thirdModelObj.lastName;
+        };
+    });
+</script>
+
+</html>

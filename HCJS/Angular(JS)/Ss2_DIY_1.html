@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 2 - Do It Yourself 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+    <div class="container" ng-controller="myController">
+        <h2 style="margin: 10px;">Session 2 - Do It Yourself 1</h2>
+        <hr>
+        <form class="form-inline" action="/action_page.php">
+            <label for="price" class="mb-2 mr-sm-2">Product Price ($):</label>
+            <input ng-change="cal()" ng-model="price" min="0" type="number" class="form-control mb-2 mr-sm-2" id="price" placeholder="Enter product price" name="price">
+            <label for="percentage" class="mb-2 mr-sm-2">Discount Percentage:</label>
+            <input disabled style="width:60px" ng-change="cal()" ng-model="discount" min="0" max="100" step="1" type="number" class="form-control mb-2 mr-sm-2" id="percentage" placeholder="Enter percentage" name="percentage">%
+        </form>
+
+        <div>
+            Total Amount payable:
+            <span class="btn-outline-success" ng-bind="total | currency:'&euro; '"></span>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myController', function($scope) {
+        $scope.total = 0;
+        $scope.price = 0;
+        $scope.discount = 10;
+        $scope.cal = function() {
+            $scope.total = $scope.price - $scope.price * $scope.discount * 0.01;
+        }
+    });
+</script>
+
+</html>

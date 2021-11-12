@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 2 - Do It Yourself 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app>
+    <div class="container">
+        <div class="row-cols-sm-4">
+            <label for="">Name: </label>
+            <input class="col-sm-auto" type="text" ng-model="name" required placeholder="Enter your name">
+        </div>
+        <div class="row-cols-sm-4">
+            <label for="">Date of Birth: </label>
+            <input class="col-sm-auto" ng-model="dob" type="date" name="dob" id="dob" min="1990-01-31" max="2000-01-01">
+        </div>
+        <div class="row-cols-sm-4">
+            <label>Mobile Number: </label>
+            <input class="col-sm-auto" ng-model="telNo" type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="Enter your phone number" minlength="10" maxlength="12" required>
+        </div>
+    </div>
+    <div>
+        Your Name: <span ng-bind="name"></span>
+    </div>
+    <div>
+        Your Date of Birth: <span ng-bind="dob"></span>
+    </div>
+    <div>
+        Your Mobile Phone: <span ng-bind="telNo"></span>
+    </div>
+</body>
+
+</html>

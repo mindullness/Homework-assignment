@@ -11,31 +11,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        span {
+            float: right;
+        }
+    </style>
 </head>
 
 <body ng-app>
-    <div class="container">
-        <div class="row-cols-sm-4">
-            <label for="">Name: </label>
-            <input class="col-sm-auto" type="text" ng-model="name" required placeholder="Enter your name">
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h2>Session 2 - Do It Yourself 2</h2>
+        <br>
+        <div class="col-6">
+            <div class="row-cols-sm-4">
+                <label for="">Name: </label>
+                <input class="col-sm-auto" type="text" ng-model="name" required placeholder="Enter your name">
+            </div>
+            <div class="row-cols-sm-4">
+                <label for="">Date of Birth: </label>
+                <input class="col-sm-auto" ng-model="dob" type="date" name="dob" id="dob" min="1990-01-31" max="2000-01-01">
+            </div>
+            <div class="row-cols-sm-4">
+                <label>Mobile Number: </label>
+                <input class="col-sm-auto" ng-model="telNo" type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="Enter your phone number" minlength="10" maxlength="12" required>
+            </div>
         </div>
-        <div class="row-cols-sm-4">
-            <label for="">Date of Birth: </label>
-            <input class="col-sm-auto" ng-model="dob" type="date" name="dob" id="dob" min="1990-01-31" max="2000-01-01">
+        <hr style="border: 1px solid wheat;">
+        <div class="col-6">
+            <div>
+                Your Name: <span ng-bind="name"></span>
+            </div>
+            <div>
+                Your Date of Birth: <span ng-bind="dob|date:fullDate"></span>
+            </div>
+            <div>
+                Your Mobile Phone: <span ng-bind="telNo"></span>
+            </div>
         </div>
-        <div class="row-cols-sm-4">
-            <label>Mobile Number: </label>
-            <input class="col-sm-auto" ng-model="telNo" type="tel" autocomplete="off" name="telNo" id="telNo" placeholder="Enter your phone number" minlength="10" maxlength="12" required>
-        </div>
-    </div>
-    <div>
-        Your Name: <span ng-bind="name"></span>
-    </div>
-    <div>
-        Your Date of Birth: <span ng-bind="dob"></span>
-    </div>
-    <div>
-        Your Mobile Phone: <span ng-bind="telNo"></span>
     </div>
 </body>
 

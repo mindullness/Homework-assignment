@@ -36,7 +36,7 @@
     app.controller('myController', function($scope) {
         $scope.total = 0;
         $scope.price = 0;
-        $scope.discount = 10;
+        $scope.discount = 5;
         $scope.cal = function() {
             $scope.total = $scope.price - $scope.price * $scope.discount * 0.01;
         }

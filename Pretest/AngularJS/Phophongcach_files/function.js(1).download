@@ -1,0 +1,316 @@
+
+
+
+
+
+
+
+
+
+
+
+/*tab dat may*/
+ // Tab selection
+ $=jQuery;
+ $(function(){
+    $(".tab-title li a").click(function(){
+        var tabIndex = $(this).attr("rel");
+        $(".noidung-tab").hide();
+        $(".noidung-tab[rel=\'"+tabIndex+"'\]").show();
+        $(".tab-title li").removeClass("active");
+        $(this).parent("li").addClass("active");
+        $("#tab-index").val(tabIndex);
+        return false;
+    });
+ });
+    
+    
+/**
+ * Canh giua menu con
+ */
+jQuery.fn.alignCenter = function(){
+    var $=jQuery;
+    return this.each(function(){
+        var wParent = $(this).width();
+        var hParent = $(this).height();
+        var sum = 0;
+        $(this).find("li").each(function(){
+            sum += $(this).width();    
+        });
+        var wLi = Math.round((wParent-sum)/2);
+        $("<li class='first' />")
+            .css({width:wLi,height:hParent+"px"})
+            .prependTo($(this));
+    });    
+}
+
+/* active menu */
+jQuery.fn.activeNav = function(){
+    var $=jQuery;
+    return this.each(function(){
+        $(this).find("a[href='"+window.location+"']")
+        .addClass("active").parents('li').addClass("active");
+    });
+}
+
+/*================================Main===============================*/
+jQuery(function( $ ){
+    
+    /* align content center*/
+    $("ul.jcenter").alignCenter()
+    
+    /* active current page menu */
+    $("ul.jactive").activeNav();
+    
+    
+    /* form login */
+    $('.fancybox').fancybox();
+    
+    /* form login */
+    $("#form-login form").submit(function(){
+        var form = this;
+        var link = form.action;
+        var data = $(this).serializeArray();
+        $(".ajaxload").show();
+        $.post(link,data,function(rdata){
+            if(rdata.error==false){
+                $(".ajaxload").hide();
+                window.location = window.location; 
+            }else{
+                $(form).find(".alert").remove();
+                $(form).find(".confirm").append(rdata.alert);
+            }
+            $(".ajaxload").hide();
+        },'json');
+        return false;
+    });
+    
+    
+    var total_width = $("#product-title").width();
+    var left_width = $("#product-title .fl").width();
+    $("#product-title .fr").css("width",( Math.round( ( (total_width-left_width)*100 )/total_width )-5 + "%") );
+    
+    
+    
+    $(".category-product a").click(function(){
+        if($(this).next().is(".children")){
+            $(this).next(".children").slideToggle("slow");
+            return false;
+        }
+    });
+    
+    $(".lists-color li a").click(function(){
+        $(".lists-color").find(".active").removeClass("active");
+        $(".lists-color").find("input").attr("checked",false);
+        
+        $(this).parent().addClass("active");
+
+        $(this).find("input").attr("checked",true);        
+        return false;
+    });
+    
+    
+     $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+    
+    // Mua ngay
+    $(".buy-now").bind("click",function(){
+        
+        // Get size
+        var input_size = $(".chose-size").find("input:checked");
+        var size_value = input_size.val();
+        var size_label = input_size.next("label").text();
+        
+        // Get color
+        var input_color = $(".lists-color").find("input:checked");
+        var color_value = input_color.val(); 
+        var color_label = input_color.parent("a").attr("title");
+        
+        // Get quantity
+        var qty_value = $(".quantity").find("input[name='quantity']").val();
+        
+        // Add to popup
+        $(".form-buy-now").find("input[name='size']").val(size_value);
+        $(".form-buy-now").find(".display-size").text(size_label);
+        
+        $(".form-buy-now").find("input[name='color']").val(color_value);
+        $(".form-buy-now").find(".display-color").text(color_label);
+        
+        $(".form-buy-now").find("input[name='quantity']").val(qty_value);
+        $(".form-buy-now").find(".display-quantity").text(qty_value);
+        
+        
+    });
+    
+    // change address
+    $("input[name='other_address']").change(function(){
+        var value = this.value;
+        if(value=='yes'){
+            $(".thongtin-nguoinhan").show();
+            $(".custom_receiv").show();
+        }else{
+            $(".thongtin-nguoinhan").hide();
+        }
+    });
+    var chose = $('.chose-otheraddress input:checked').val();
+    if(chose=='yes'){
+        $(".thongtin-nguoinhan").show();
+        $(".custom_receiv").show();
+    }
+    
+    // Change payment
+    $(".change-payment").click(function(){
+        $(".table-payment td.active").removeClass("active");
+        $(".table-payment input[name='select_payment']").attr("checked",false);
+        $(this).prev("input").attr("checked",true);
+        $(this).parent("td").addClass("active");
+        return false;
+    });
+    
+    $(".btn-checkout-finished").click(function(){
+        var payment_value = $("input[name='select_payment']:checked").val();
+		loading = $("<div class='load-small fl'/>").prependTo($(this));
+		
+		
+        $.post(this.href,{'payment':payment_value},function(rdata){
+			loading.remove();
+            window.location = rdata.return_link;
+        },'json');
+		
+        return false;
+    });
+});
+
+
+
+
+
+
+/**
+ * Ham mua ngay
+ */
+function buy_now(f){
+    var $ = jQuery;
+    var sdata = $(f).serializeArray();
+	$(".ajaxload").show();
+	$(f).find(".alert").remove();
+    $.post(f.action,sdata,function(rdata){
+        $(f).prepend(rdata.message);
+		$(".ajaxload").hide();
+    },'json');
+    return false;
+}
+
+/**
+ * Them vao gio hang
+ */
+ 
+ function add_to_cart(f){
+    var $ = jQuery;
+    var sdata = $(f).serializeArray();
+    $(".add-to-cart-loading").show();
+	$(".alert").remove();
+    $.post(f.action, sdata , function(rdata){
+        $(".add-to-cart-loading").hide();
+        $('.alert-success').remove();
+        $("#primary").prepend(rdata.message);
+        $("html, body").animate({scrollTop: $('.alert-success').offset().top -200 }, 1000);
+        $(".cart-total").text(rdata.cart_qty);
+    },'json');
+    return false;
+ }
+ 
+ /**
+  * Xoa san pham khoi gio hang
+  */
+ function del_cart(o){
+    var $ = jQuery;
+    $.post(o.href,{key:o.rel},function(rdata){
+        $(".page-cart .subtotal").text(rdata.subtotal_price);
+        $(".cart-total").text(rdata.total);
+        $(o).parents("tr").fadeOut("slow",function(){
+            $(this).remove();
+        });
+        if($(".table").children("tbody").find("tr").length<=0){
+            window.location = window.location;
+        }
+    },'json');
+    return false;
+ }
+ 
+ 
+ /**
+  * Cap nhat so luong gio hang
+  */
+ function update_qty_cart(o){
+    var $ = jQuery;
+    var load = $(o).parents("td").find(".cart-loading");
+    var input_qty = $(o).parents('.qty').find('.cart-qty');
+    if(o.rel=="plus"){
+        input_qty.val(parseInt(input_qty.val())+1);
+    }else{
+        input_qty.val(parseInt(input_qty.val())-1);
+    }
+    load.show();    
+    var cart_index = $(o).parents("tr").find("input[name='cart_index']").val();
+    var car_qty = $(o).parents('.qty').find("input.cart-qty").val();
+    $.post(o.href,{key:cart_index,qty:car_qty},function(rdata){
+        $(".page-cart .subtotal").text(rdata.subtotal_price);
+        $(".cart-total").text(rdata.total);
+        $(o).parents("tr").find('.total_price').text(rdata.total_price);
+        load.hide();
+    },'json');
+    return false;
+ }
+ 
+ 
+ /**
+  * Submit form checkout
+  */
+  function submit_form_checkout(f){
+    var $ = jQuery;
+    var error = false;
+    $(f).find(".required").each(function(){
+        if(this.value==""){
+            $(this).parents(".control-group").addClass("error");
+            error = true;
+        }else{
+            $(this).parents(".control-group").removeClass("error");
+        }
+    });
+    if(error==false){
+        f.submit();   
+    }else{
+        $("html,body").animate({scrollTop:$("#form_customer").offset().top-200},500);
+        $("input[name='buy_fullname']").focus();
+    }
+    return false;
+  }
+  
+ jQuery(function($){
+	   var topoffset = Math.round(($(window).height() - $("#content-into").height())/6);
+	   
+	   if(topoffset>0){
+		$("#content-into").css({'margin-top':topoffset});
+	}
+});
+  
+  
+  
+  /* them nhanh vao gioa hang*/ 
+jQuery(function($){
+	 $('.buy_quick').click(function(){
+	   $('#mes_succ').show('slow');
+	  $.post(ajaxurl,{action:"ajax-thanh-tin",id: this.rel},function(rdata){
+		 $('body').find('#cart_top').html(rdata);
+	       $('.x_empty').click(function(){
+		     $('#mes_succ').hide('slow');
+			   return false;
+		   });
+	  })
+	  return false;
+    })  
+}); 
+ /* them nhanh vao gioa hang*/

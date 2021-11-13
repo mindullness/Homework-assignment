@@ -1,0 +1,65 @@
+.arrowlistmenu{
+/*width: 180px;*/ /*width of accordion menu*/
+text-align:right;
+width:107px;
+list-style:
+}
+
+.arrowlistmenu .menuheader{ /*CSS class for menu headers in general (expanding or not!)*/
+font: bold 12px Arial;
+color: #007F06;
+/*background: black url(titlebar.png) repeat-x center left;*/
+margin-bottom: 0px; /*bottom spacing between header and rest of content*/
+text-transform: uppercase;
+padding: 0px 0 0px 0px; /*header text is indented 10px*/
+cursor: hand;
+cursor: pointer;
+}
+
+.arrowlistmenu .openheader{ /*CSS class to apply to expandable header when it's expanded*/
+/*background-image: url(titlebar-active.png);*/
+}
+
+.arrowlistmenu ul{ /*CSS for UL of each sub menu*/
+list-style-type: none;
+margin: 0;
+padding: 0;
+margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+
+.arrowlistmenu ul li{
+padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+
+.arrowlistmenu ul li .opensubheader{ /*Open state CSS for sub menu header*/
+background: lightblue !important;
+}
+
+.arrowlistmenu ul li .closedsubheader{ /*Closed state CSS for sub menu header*/
+background: lightgreen !important;
+}
+
+.arrowlistmenu ul li a{
+color: #696969;
+/*background: url(arrowbullet.png) no-repeat center left;*/
+display: block;
+padding: 2px 0;
+padding-left: 0px; /*link text is indented 19px*/
+text-decoration: none;
+
+
+font-size: 100%;
+}
+
+.arrowlistmenu ul li a:visited{
+color: #696969;
+}
+
+.arrowlistmenu ul li a:hover{ /*hover state CSS*/
+background-color: none;
+color:#006600;
+}
+
+.arrowlistmenu ul li a.subexpandable:hover{ /*hover state CSS for sub menu header*/
+background: lightblue;
+}

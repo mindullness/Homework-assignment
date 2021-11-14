@@ -1,4 +1,4 @@
-<!DOCTYPE html ng-app="myApp">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -37,10 +37,9 @@
     </style>
 </head>
 
-<body ng-controller="homeCtrl">
+<body>
 
     <div class="container">
-
 
         <div class="row">
             <form name="myForm" class="col-6">
@@ -49,7 +48,7 @@
                 <div class="form-group">
                     <label for="">Food ID:</label>
                     <div class="form-inline">
-                        <input class="form-control" type="text" name="id" ng-model="id" pattern="S\d{2}" maxlength="3" required placeholder="Input Food ID"> &nbsp;
+                        <input class="form-control" type="text" name="id" ng-model="id" pattern="F\d{2}" maxlength="3" required placeholder="Input Food ID"> &nbsp;
                         <small ng-show="myForm.id.$error.required"> ID is required</small>
                     </div>
                 </div>
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button ng-click="addFood()" class="btn btn-warning">Add</button>
+                    <button ng-click="addFood()" class="btn btn-warning" ng-disabled="myForm.price.$invalid || myForm.name.$invalid || myForm.id.$invalid">Add</button>
                 </div>
             </form>
             <div class="col-6">

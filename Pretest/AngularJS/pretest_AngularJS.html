@@ -19,7 +19,7 @@
     }
     
     ul {
-        background-color: gainsboro;
+        background-color: rgba(113, 147, 163, 0.692);
         border-radius: 5px;
         font-weight: bold;
     }
@@ -33,28 +33,42 @@
         height: min-content;
         margin: 0 auto;
     }
+    
+    footer {
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        bottom: 15px;
+        font-size: small;
+        padding-top: 3em;
+    }
 </style>
 
 <body ng-app="homeApp" ng-controller="homeCtrl">
 
-    <div class="container">
+    <div class="container  p-3 my-4 bg-dark">
         <h2>Pretest AngularJS</h2>
         <hr>
         <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
-                <a href="#!" class="nav-link text-primary">Home</a>
+                <a href="#!" class="nav-link text-white">Home</a>
             </li>
             <li class="nav-item ">
-                <a href="#!Food" class="nav-link text-primary">Food</a>
+                <a href="#!Food" class="nav-link text-success">Food</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#!addFood">Add New Food</a>
+                <a class="nav-link text-danger" href="#!addFood">Add New Food</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#">About</a>
+                <a class="nav-link text-info" href="#!about">About</a>
             </li>
         </ul><br>
         <div ng-view class="main"></div>
+        <footer>
+            2021 M&capbrcup;&capbrcup;gu&capbrcup;ete . All rights reserved
+        </footer>
     </div>
 
 </body>
@@ -72,8 +86,8 @@
             .when("/addFood", {
                 templateUrl: "addFood.html"
             })
-            .when("/g", {
-                templateUrl: "test2.html"
+            .when("/about", {
+                templateUrl: "aboutMe.html"
             });
     });
 

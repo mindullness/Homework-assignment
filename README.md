@@ -18,3 +18,5 @@ https://maaguaete.github.io/Homework-assignment/HCJS/Angular(JS)/Ss3_DIY_1.html
 https://maaguaete.github.io/Homework-assignment/HCJS/Angular(JS)/Ss3_DIY_2.html
 
 https://maaguaete.github.io/Homework-assignment/HCJS/Angular(JS)/Ss4_DIY.html
+
+https://maaguaete.github.io/Homework-assignment/Pretest/AngularJS/pretest_AngularJS.html

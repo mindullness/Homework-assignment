@@ -13,38 +13,39 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
+    <style>
+        * {
+            color: rgb(233, 177, 35);
+        }
+        
+        ul {
+            background-color: rgba(113, 147, 163, 0.692);
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            background-color: rgba(51, 143, 236, 0.4);
+        }
+        
+        .main {
+            width: 90%;
+            margin: 0 auto;
+            height: min-content;
+        }
+        
+        footer {
+            position: relative;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            bottom: 15px;
+            font-size: small;
+            padding-top: 3em;
+        }
+    </style>
 </head>
-<style>
-    * {
-        color: rgb(233, 177, 35);
-    }
-    
-    ul {
-        background-color: rgba(113, 147, 163, 0.692);
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    
-    a:hover {
-        background-color: rgba(51, 143, 236, 0.4);
-    }
-    
-    .main {
-        width: 90%;
-        margin: 0 auto;
-    }
-    
-    footer {
-        position: relative;
-        display: block;
-        text-align: center;
-        width: 100%;
-        margin: 0 auto;
-        bottom: 15px;
-        font-size: small;
-        padding-top: 3em;
-    }
-</style>
 
 <body ng-app="myApp" ng-controller="mainCtrl">
 
@@ -53,7 +54,7 @@
         <hr>
         <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
-                <a href="#!" class="nav-link text-white">Home</a>
+                <a href="#/!" class="nav-link text-white">Home</a>
             </li>
             <li class="nav-item ">
                 <a href="#!Food" class="nav-link text-success">Food</a>

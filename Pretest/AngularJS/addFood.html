@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 
 <head>
@@ -37,7 +37,7 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="addCtrl">
 
     <div class="container">
 
@@ -48,8 +48,8 @@
                 <div class="form-group">
                     <label for="">Food ID:</label>
                     <div class="form-inline">
-                        <input class="form-control" type="text" name="id" ng-model="id" pattern="F\d{2}" maxlength="3" required placeholder="Input Food ID"> &nbsp;
-                        <small ng-show="myForm.id.$error.required"> ID is required</small>
+                        <input class="form-control" type="text" name="fID" ng-model="fID" pattern="F\d{2}" maxlength="3" required placeholder="Input Food ID "> &nbsp;
+                        <small ng-show="myForm.id.$error.required"> ID is required (Fxx - x is number)</small>
                     </div>
                 </div>
                 <div class="form-group">
@@ -83,9 +83,9 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="x in foodData">
-                            <td>{{x.id}}</td>
+                            <td>{{x.fID}}</td>
                             <td>{{x.name}}</td>
-                            <td>{{x.price}}</td>
+                            <td>{{x.price|currency}}</td>
                         </tr>
                     </tbody>
                 </table>

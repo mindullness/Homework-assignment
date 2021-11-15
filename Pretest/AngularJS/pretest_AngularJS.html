@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 
 <head>
@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
 </head>
@@ -30,7 +31,6 @@
     
     .main {
         width: 90%;
-        height: min-content;
         margin: 0 auto;
     }
     
@@ -46,7 +46,7 @@
     }
 </style>
 
-<body ng-app="homeApp" ng-controller="homeCtrl">
+<body ng-app="myApp" ng-controller="mainCtrl">
 
     <div class="container p-3 my-4 bg-dark">
         <h2>Pretest AngularJS</h2>
@@ -65,46 +65,15 @@
                 <a class="nav-link text-info" href="#!about">About</a>
             </li>
         </ul><br>
+
         <div ng-view class="main"></div>
+
         <footer>
             2021 M&capbrcup;&capbrcup;gu&capbrcup;ete . All rights reserved
         </footer>
     </div>
 
 </body>
-<script>
-    var app = angular.module("homeApp", ["ngRoute"]);
-
-    app.config(function($routeProvider) {
-        $routeProvider
-            .when("/", {
-                templateUrl: "Phophongcach.html"
-            })
-            .when("/Food", {
-                templateUrl: "Food.html"
-            })
-            .when("/addFood", {
-                templateUrl: "addFood.html"
-            })
-            .when("/about", {
-                templateUrl: "aboutMe.html"
-            });
-    });
-
-    app.controller("homeCtrl", function($scope, $http) {
-
-        $http.get("Food.json").then(function(response) {
-            $scope.foodData = response.data;
-        });
-
-        $scope.addFood = function() {
-            $scope.foodData.push({
-                "id": $scope.id,
-                "name": $scope.name,
-                "price": $scope.price
-            });
-        }
-    });
-</script>
+<script src="myScript.js"></script>
 
 </html>

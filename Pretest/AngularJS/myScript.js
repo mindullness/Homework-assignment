@@ -19,7 +19,6 @@ app.config(function($routeProvider) {
             templateUrl: "aboutMe.html",
 
         });
-
 });
 
 app.controller("mainCtrl", function($scope, $http) {

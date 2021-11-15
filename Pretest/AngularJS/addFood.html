@@ -1,93 +1,53 @@
-<!DOCTYPE html >
-<html lang="en">
+<div class="container" ng-controller="addCtrl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Food</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.2/angular-animate.min.js"></script>
-    <style>
-        div small {
-            color: red;
-        }
-        
-        label {
-            font-weight: bold;
-        }
-        
-        input.ng-invalid {
-            border-color: rgb(233, 177, 35);
-        }
-        
-        input.ng-valid {
-            border-color: forestgreen;
-            background: mintcream;
-            color: blue;
-        }
-    </style>
-</head>
-
-<body ng-controller="addCtrl">
-
-    <div class="container">
-
-        <div class="row">
-            <form name="myForm" class="col-6">
-                <h2 style="text-align: center;">Add Food</h2>
-                <hr>
-                <div class="form-group">
-                    <label for="">Food ID:</label>
-                    <div class="form-inline">
-                        <input class="form-control" type="text" name="fID" ng-model="fID" pattern="F\d{2}" maxlength="3" required placeholder="Input Food ID ">
-                        <small ng-show="myForm.fID.$error.required"> ID is required (Fxx - x is number)</small>
-                    </div>
+    <div class="row">
+        <form name="myForm" class="col-6">
+            <h2 style="text-align: center;">Add Food</h2>
+            <hr>
+            <div class="form-group">
+                <label for="">Food ID:</label>
+                <div class="form-inline">
+                    <input class="form-control" type="text" name="fID" ng-model="fID" pattern="F\d{2}" maxlength="3" required placeholder="Input Food ID ">&nbsp;
+                    <small ng-show="myForm.fID.$error.required"> ID is required (Fxx - x is number)</small>
                 </div>
-                <div class="form-group">
-                    <label for="">Food Name : </label>
-                    <div class="form-inline">
-                        <input class="form-control" type="text" name="name" ng-model="name" required placeholder="Input Food Name"> &nbsp;
-                        <small ng-show="myForm.name.$error.required">Name is required</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="">Price : </label>
-                    <div class="form-inline">
-                        <input class="form-control" type="number" name="price" ng-model="price" min="0" required placeholder="Set the price"> &nbsp;
-                        <small ng-show="myForm.price.$error.required">Price is required</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button ng-click="addFood()" class="btn btn-warning" ng-disabled="myForm.price.$invalid || myForm.name.$invalid || myForm.id.$invalid">Add</button>
-                </div>
-            </form>
-            <div class="col-6">
-                <h2 style="text-align: center;">Menu</h2>
-                <hr>
-                <table class="table table-bordered table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="x in foodData">
-                            <td>{{x.fID}}</td>
-                            <td>{{x.name}}</td>
-                            <td>{{x.price|currency}}</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
+            <div class="form-group">
+                <label for="">Food Name : </label>
+                <div class="form-inline">
+                    <input class="form-control" type="text" name="name" ng-model="name" required placeholder="Input Food Name"> &nbsp;
+                    <small ng-show="myForm.name.$error.required">Name is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Price : </label>
+                <div class="form-inline">
+                    <input class="form-control" type="number" name="price" ng-model="price" min="0" required placeholder="Set the price"> &nbsp;
+                    <small ng-show="myForm.price.$error.required">Price is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <button ng-click="addFood()" class="btn btn-warning" ng-disabled="myForm.price.$invalid || myForm.name.$invalid || myForm.id.$invalid">Add</button>
+            </div>
+        </form>
+        <div class="col-6">
+            <h2 style="text-align: center;">Menu</h2>
+            <hr>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in foodData">
+                        <td>{{x.fID}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.price|currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-</body>
-
-</html>
+</div>

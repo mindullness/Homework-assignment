@@ -9,7 +9,6 @@ app.config(function($routeProvider) {
         })
         .when("/Food", {
             templateUrl: "Food.html",
-
         })
         .when("/addFood", {
             templateUrl: "addFood.html",

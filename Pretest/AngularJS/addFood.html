@@ -2,7 +2,7 @@
 
     <div class="row">
         <form name="myForm" class="col-6">
-            <h2 style="text-align: center;">Add Food</h2>
+            <h2 style="text-align: center;">ADD FOOD</h2>
             <hr>
             <div class="form-group">
                 <label for="">Food ID:</label>
@@ -30,24 +30,7 @@
             </div>
         </form>
         <div class="col-6">
-            <h2 style="text-align: center;">Menu</h2>
-            <hr>
-            <table class="table table-bordered table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="x in foodData">
-                        <td>{{x.fID}}</td>
-                        <td>{{x.name}}</td>
-                        <td>{{x.price|currency}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div ng-include="'Food.html'"></div>
         </div>
     </div>
 </div>

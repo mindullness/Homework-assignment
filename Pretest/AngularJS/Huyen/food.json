@@ -1,0 +1,25 @@
+[{
+    "fID": "F01",
+    "name": "PHO",
+    "price": 69
+}, {
+    "fID": "F02",
+    "name": "COM TAM",
+    "price": 101
+}, {
+    "fID": "F03",
+    "name": "BANH MI",
+    "price": 65
+}, {
+    "fID": "F04",
+    "name": "DUI CUU",
+    "price": 95
+}, {
+    "fID": "F05",
+    "name": "SO LONG",
+    "price": 100
+}, {
+    "fID": "F06",
+    "name": "DAU CA HOI CHIEN NUOC MAM",
+    "price": 60
+}]

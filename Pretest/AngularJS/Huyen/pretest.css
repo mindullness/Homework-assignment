@@ -1,0 +1,13 @@
+.menu {
+    border: black solid;
+    width: 90%;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.thu {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}

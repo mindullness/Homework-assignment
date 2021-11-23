@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row">
+        <form name="myForm" class="col-10">
+            <h2>Add Form</h2>
+            <hr>
+            <div class="form-group">
+                <label for="">Code:</label>
+                <div class="form-inline">
+                    <input class="form-control" type="text" name="code" ng-model="code" maxlength="5" required>&nbsp;
+                    <small ng-show="myForm.code.$error.required">Name is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">From: </label>
+                <div class="form-inline">
+                    <input class="form-control" type="text" name="from" ng-model="from" required> &nbsp;
+                    <small ng-show="myForm.name.$error.required">From is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">To: </label>
+                <div class="form-inline">
+                    <input class="form-control" type="text" name="to" ng-model="to" required> &nbsp;
+                    <small ng-show="myForm.to.$error.required">To is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Time: </label>
+                <div class="form-inline">
+                    <input class="form-control" type="number" name="time" ng-model="time" min="0" required> &nbsp;
+                    <small ng-show="myForm.time.$error.required">Time is required</small>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <button ng-click="addFlight()" class="btn btn-warning" ng-disabled="myForm.code.$invalid || myForm.from.$invalid || myForm.to.$invalid || myForm.time.$invalid">Add</button>
+            </div>
+        </form>
+
+    </div>
+</div>

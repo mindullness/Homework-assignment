@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Add Form</h3>
+            <hr>
+            <form name="myForm" ng-submit="addRow();">
+                <div class="form-group">
+                    <label for="">ID </label>
+                    <input type="text" name="id" ng-model="id" required class="form-control" pattern="F\d{2}">
+
+                    <span class="error" ng-show="myForm.id.$error.required"> ID is Required.</span> <br>
+                    <span class="error" ng-show="myForm.id.$invalid"> ID has format Fxx, x:digit </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Name </label>
+                    <input type="text" name="name" ng-model="name" required class="form-control" value="aaa">
+                    <span class="error" ng-show="myForm.name.$error.required"> Name is Required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Price </label>
+                    <input type="number" name="price" ng-model="price" required class="form-control" min="0">
+
+                    <span class="error" ng-show="myForm.price.$error.required">Price is Required.</span> <br>
+                    <span class="error" ng-show="myForm.price.$invalid">Selling price must be greater than 0.
+                    </span>
+                </div class="form-group">
+
+                <div>
+                    <input type="submit" value="Add" class="btn btn-danger"
+                        ng-disabled="!myForm.$dirty || (myForm.$dirty && myForm.$invalid)">
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>

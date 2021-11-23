@@ -26,6 +26,12 @@ app.controller("mainCtrl", function($scope, $http) {
         $scope.foodData = response.data;
         return $scope.foodData;
     });
+    // Delete a food
+    $scope.remove = function(index) {
+        if (confirm("Are you sure you want to delete this food?")) {
+            $scope.foodData.splice(index, 1);
+        }
+    }
 });
 
 app.controller("addCtrl", function($scope) {

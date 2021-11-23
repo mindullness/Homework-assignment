@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pretest.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container" ng-controller="mainCTR">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th><a href="#/!">Home</a></th>
+                    <th><a href="#!food">Food</a></th>
+                    <th><a href="#!add">Add New</a></th>
+                    <th><a href="#!about">About</a></th>
+                </tr>
+            </thead>
+        </table>
+
+        <div ng-view></div>
+
+        <hr />
+        <div style="text-align: center; font-weight: bolder;">
+            &copy;Copyright Fpt Aptech
+        </div>
+
+        <script>
+            var app = angular.module("myApp", ["ngRoute"]);
+            app.config(function($routeProvider) {
+                $routeProvider
+                // .when("/", {
+                //     templateUrl: "food.html"
+                // })
+                    .when("/food", {
+                        templateUrl: "food.html"
+                    })
+                    .when("/add", {
+                        templateUrl: "add.html",
+                        controller: "addCTR"
+                    })
+
+            });
+
+
+            //lap trinh cho controller de lay data tu file
+            app.controller('mainCTR', function($scope, $http) {
+                $http.get("food.json").then(function(response) {
+                    $scope.ds = response.data;
+                    console.log($scope.ds)
+                });
+
+                $scope.remove = function(index) {
+                    if (confirm('are u sure ?')) {
+                        $scope.ds.splice(index, 1)
+                    }
+
+                }
+            });
+
+
+            //lap trinh cho su kien them 1 san pham moi, thuoc ve controller cua trang [add new food]
+            app.controller('addCTR', function($scope) {
+                $scope.addRow = function() {
+                    $scope.ds.push({
+                        "fID": $scope.id,
+                        "name": $scope.name,
+                        "price": $scope.price
+                    });
+
+                    alert("Add new food successfully!!!");
+                }
+
+            });
+        </script>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+[{
+    "code": "VN101",
+    "from": "Ho Chi Minh",
+    "to": "Ha Noi",
+    "time": 2
+}, {
+    "code": "VN102",
+    "from": "Ho Chi Minh",
+    "to": "Da Nang",
+    "time": 1.5
+}, {
+    "code": "VJ301",
+    "from": "Ha Noi",
+    "to": "Ho Chi Minh",
+    "time": 2
+}, {
+    "code": "VJ302",
+    "from": "Phu Quoc",
+    "to": "Ho Chi Minh",
+    "time": 1
+}]

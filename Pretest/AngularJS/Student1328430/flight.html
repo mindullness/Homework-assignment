@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretest AngularJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
+    <style>
+        * {
+            color: rgb(233, 177, 35);
+        }
+        
+        ul {
+            background-color: rgba(113, 147, 163, 0.692);
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            background-color: rgba(51, 143, 236, 0.4);
+        }
+        
+        .main {
+            width: 50%;
+            margin: 0 auto;
+            height: min-content;
+        }
+        
+        .list {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 0.6em;
+            font-weight: bold;
+        }
+        
+        footer {
+            position: relative;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            bottom: 15px;
+            font-size: small;
+            padding-top: 3em;
+        }
+        
+        div small {
+            color: red;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input.ng-invalid {
+            border-color: rgb(233, 177, 35);
+        }
+        
+        input.ng-valid {
+            border-color: forestgreen;
+            background: mintcream;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="mainCtrl">
+
+    <div class="container p-3 my-4 bg-dark">
+        <h2>Domestic Terminal</h2>
+        <hr>
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <a href="#/!" class="nav-link text-white">Home</a>
+            </li>
+            <li class="nav-item ">
+                <a href="#!Flights" class="nav-link text-success">Flight</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="#!addFlight">Add New Flight</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#!about">About</a>
+            </li>
+        </ul><br>
+
+        <div ng-view class="main"></div>
+
+        <footer>
+            2021 Flight Information Display System . All rights reserved
+        </footer>
+    </div>
+
+</body>
+<script src="myScript.js"></script>
+
+</html>

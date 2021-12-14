@@ -1,0 +1,65 @@
+ENTITIES:
+
+	1. Staff
+	2. Items
+	3. Suppliers
+	4. Customer
+	5. Orders
+	6. Delivery
+	7. Vans
+
+ATTRIBUTES:
+
+	1. Staff: 
+		staff-ID (PK), Name, Position (takeOrder-groupOrder-driver)
+
+	2. Items: 
+		item-ID (PK), item-Name, price, sup-ID*
+
+	3. Suppliers:
+		sup-ID(PK), sup-Name
+
+	4. Customer:
+		cus-ID (PK), cus-Name, DoB, cus-Address, order-ID*
+
+	5. Order:
+		order-ID(PK), cus-ID, item-ID*, item-Qty, price, date-Order, deli-Address (area)
+
+	6. Delivery:
+		deli-ID(PK), van-ID*, Date-Deli, order-ID*, Addresses(area)
+
+	7. Vans:
+		van-ID(PK), van-avai., deli-ID*
+
+RELATIONSHIP
+
+	ENTITY 			MUL 	RELATIONSHIP 		MUL 		ENTTITY
+
+	1. Staff		
+					1			take 		 	0..*		Orders
+					1			make 		 	0..*		Delivery
+		
+	2. Items	
+					1	 		contain		 	0..*		Supplier
+					0..*		is contained	1..*		Orders
+
+	3. Suppliers 	
+					1 			supply 			0..*		Items
+
+	4. Customer		
+					1..*		make 			1..*		Orders
+
+	5. Orders		
+					1..*		is taken by 	1..*		Staff
+					1..*		contain 		0..* 		Items
+					1..*		is made by		1..*		Customer
+					0..*		is contained 	1..*		Delivery
+
+	6. Delivery
+					1..*		contain 		0..*		Items
+					1..*		contain			0..*		Orders
+					0..*		is made by		1			Vans
+	
+	7. Vans
+					1			make			0..*		Delivery
+

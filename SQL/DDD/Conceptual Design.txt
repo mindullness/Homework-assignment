@@ -20,7 +20,7 @@ ATTRIBUTES:
 		sup-ID(PK), sup-Name
 
 	4. Customer:
-		cus-ID (PK), cus-Name, DoB, cus-Address, order-ID*
+		cus-ID (PK), cus-Name, DoB, cus-Address
 
 	5. Order:
 		order-ID(PK), cus-ID, item-ID*, item-Qty, price, date-Order, deli-Address (area)
@@ -29,7 +29,7 @@ ATTRIBUTES:
 		deli-ID(PK), van-ID*, Date-Deli, order-ID*, Addresses(area)
 
 	7. Vans:
-		van-ID(PK), van-avai., deli-ID*
+		van-ID(PK), availability
 
 RELATIONSHIP
 
